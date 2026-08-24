@@ -1,0 +1,554 @@
+# 논문 목록. youngjoonhong.com 의 Publication 페이지와 동기화 (총 61편).
+#
+# 새 논문은 아무 데나 붙여도 돼 — 연도 기준 정렬은 사이트가 알아서 해.
+# highlight: true 인 것만 첫 화면 "Selected work" 에 올라가.
+# authors 이름이 members.yml 의 name 과 정확히 같으면 굵게 표시돼.
+#   (지금은 홈페이지 표기 그대로 "Y. Hong" 식 약자야. 전체 이름으로 풀어 쓰면 굵어져.)
+# paper / arxiv / doi / code 에 주소를 넣으면 링크 버튼이 생겨.
+# type: journal | conference | preprint | thesis
+
+# ─────────────────────────── 2026 ───────────────────────────
+
+- title: Discontinuous Galerkin finite element operator network for solving non-smooth PDEs
+  authors: [K. Chawla, Y. Hong, J. Lee, S. Lee]
+  venue: SIAM Journal on Scientific Computing
+  year: 2026
+  type: journal
+  topics: [Operator learning, Numerical analysis]
+  arxiv: https://arxiv.org/abs/2601.03668
+
+- title: Semi-Supervised Neural Super-Resolution for Mesh-Based Simulations
+  authors: [J. Kim, Y. Hong, W. Shin]
+  venue: ICML
+  year: 2026
+  type: conference
+  topics: [Scientific machine learning]
+  arxiv: https://arxiv.org/abs/2605.09284
+
+- title: Extreme Weather Nowcasting via Local Precipitation Pattern Prediction
+  authors: [C. Song, T. Chang, Y. Hong]
+  venue: ICLR
+  year: 2026
+  type: conference
+  topics: [Generative models, Climate]
+  highlight: true
+  paper: https://openreview.net/forum?id=fDknsQhSgm
+  arxiv: https://arxiv.org/abs/2602.05204
+
+- title: "Error as Signal: Stiffness-Aware Diffusion Sampling via Embedded Runge-Kutta Guidance"
+  authors: [I. Kong, S. Lee, Y. Hong, H. Kim]
+  venue: ICLR
+  year: 2026
+  type: conference
+  topics: [Generative models, Numerical analysis]
+  highlight: true
+  paper: https://openreview.net/forum?id=wKX9OL0leb
+  arxiv: https://arxiv.org/abs/2603.03692
+
+- title: Error analysis for finite element operator learning methods for solving parametric second-order elliptic PDEs
+  authors: [Y. Hong, S. Ko, J. Lee]
+  venue: IMA Journal of Numerical Analysis
+  year: 2026
+  type: journal
+  topics: [Operator learning, Numerical analysis]
+  highlight: true
+  paper: https://academic.oup.com/imajna/advance-article-abstract/doi/10.1093/imanum/draf146/8519498
+  arxiv: https://arxiv.org/abs/2404.17868
+
+- title: Spectral coefficient learning via operator networks for inverse problems of parametric partial differential equations
+  authors: [M.-S. Lee, T. Yun, Y. Hong, N. Kim]
+  venue: Engineering Applications of Artificial Intelligence
+  year: 2026
+  type: journal
+  topics: [Operator learning, Inverse problems]
+
+# ─────────────────────────── 2025 ───────────────────────────
+
+- title: Toward a Robust and Generalizable Metamaterial Foundation Model
+  authors: [N. Kim, D. Lee, J. Yu, S. Cho, D. Lee, Y. Park, Y. Hong]
+  venue: npj Computational Materials
+  year: 2025
+  type: journal
+  topics: [Scientific machine learning, Metamaterials]
+  highlight: true
+  paper: https://www.nature.com/articles/s41524-025-01925-7
+  arxiv: https://arxiv.org/abs/2507.02436
+
+- title: Singular Layer Physics-Informed Neural Network Method for Convection-Dominated Boundary Layer Problems in Two Dimensions
+  authors: [G.-M. Gie, Y. Hong, C.-Y. Jung, D. Lee]
+  venue: Journal of Computational and Applied Mathematics
+  year: 2025
+  type: journal
+  topics: [Physics-informed ML, Numerical analysis]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0377042725004327
+  arxiv: https://arxiv.org/abs/2312.03295
+
+- title: Physically interpretable discrete latent representations for the design of advanced mechanical metamaterials in complex geometries
+  authors: [H. Choi, Y. Hong, N. Kim]
+  venue: Engineering Applications of Artificial Intelligence
+  year: 2025
+  type: journal
+  topics: [Generative models, Metamaterials]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0952197625010115
+
+- title: Forward and Inverse Simulation of Pseudo-Two-Dimensional Model of Lithium-Ion Batteries Using Neural Networks
+  authors: [M.-S. Lee, J. Oh, D.-C. Lee, K. Lee, S. Park, Y. Hong]
+  venue: Computer Methods in Applied Mechanics and Engineering
+  year: 2025
+  type: journal
+  topics: [Scientific machine learning, Inverse problems]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0045782525001288
+  arxiv: https://arxiv.org/abs/2412.13200
+
+- title: "PIG: Physics-Informed Gaussians as Adaptive Parametric Mesh Representations"
+  authors: [N. Kang, J. Oh, Y. Hong, E. Park]
+  venue: ICLR
+  year: 2025
+  type: conference
+  topics: [Physics-informed ML]
+  highlight: true
+  arxiv: https://arxiv.org/abs/2412.05994
+
+- title: Separable Physics-informed Neural Networks for Solving the BGK Model of the Boltzmann Equation
+  authors: [J. Oh, S. Cho, S.-B. Yun, E. Park, Y. Hong]
+  venue: SIAM Journal on Scientific Computing
+  year: 2025
+  type: journal
+  topics: [Physics-informed ML, Numerical analysis]
+  paper: https://epubs.siam.org/doi/10.1137/24M1668809
+
+- title: Finite Element Operator Network for Solving Parametric PDEs
+  authors: [J. Lee, S. Ko, Y. Hong]
+  venue: SIAM Journal on Scientific Computing
+  year: 2025
+  type: journal
+  topics: [Operator learning, Numerical analysis]
+  paper: https://epubs.siam.org/doi/10.1137/23M1623707
+  arxiv: https://arxiv.org/abs/2308.04690
+
+- title: Improved H^1-Theory for a Higher-Order Water-Wave Model
+  authors: [J. Bona, H. Chen, C. Guillope, Y. Hong]
+  venue: Water Waves
+  year: 2025
+  type: journal
+  topics: [PDE theory, Water waves]
+  paper: https://link.springer.com/article/10.1007/s42286-025-00111-y
+
+- title: Building epsilon-near-zero materials from layered uniaxial metamaterials
+  authors: [S. Gray, Y. Hong, D. Nicholls]
+  venue: Optics Express
+  year: 2025
+  type: journal
+  topics: [Optics, Metamaterials]
+  paper: https://www.osti.gov/pages/servlets/purl/2589551
+
+# ─────────────────────────── 2024 ───────────────────────────
+
+- title: Constant Acceleration Flow
+  authors: [D. Park, S. Lee, S. Kim, T. Lee, Y. Hong, H. Kim]
+  venue: NeurIPS
+  year: 2024
+  type: conference
+  topics: [Generative models]
+  highlight: true
+  paper: https://proceedings.neurips.cc/paper_files/paper/2024/hash/a3f0196243c0c96e03733253ef29b34a-Abstract-Conference.html
+
+- title: Simple arithmetic operation in latent space can generate a novel three dimensional graph metamaterials
+  authors: [N. Kim, D. Lee, C. Kim, D. Lee, Y. Hong]
+  venue: npj Computational Materials
+  year: 2024
+  type: journal
+  topics: [Generative models, Metamaterials]
+  paper: https://www.nature.com/articles/s41524-024-01430-3
+  arxiv: https://arxiv.org/abs/2404.06671
+
+- title: The effect of higher-order dissipation on solutions of the generalized Korteweg-de Vries equation
+  authors: [J. Bona, H. Chen, Y. Hong, M. Panthee, M. Scialom]
+  venue: Communications in Contemporary Mathematics
+  year: 2024
+  type: journal
+  topics: [PDE theory, Water waves]
+  paper: https://www.worldscientific.com/doi/10.1142/S0219199724500512
+
+- title: "Hydra: Multi-head low-rank adaptation for parameter efficient fine-tuning"
+  authors: [S. Kim, H. Yang, Y. Kim, Y. Hong, E. Park]
+  venue: Neural Networks
+  year: 2024
+  type: journal
+  topics: [Machine learning theory]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0893608024003381
+  arxiv: https://arxiv.org/abs/2309.06922
+
+- title: An Adaptive dual-level reinforcement learning approach for optimal trade execution
+  authors: [S. Kim, J. Kim, H. Sul, Y. Hong]
+  venue: Expert Systems With Applications
+  year: 2024
+  type: journal
+  topics: [Reinforcement learning, Applications]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0957417424011291
+  arxiv: https://arxiv.org/abs/2307.10649
+
+- title: A novel physics-aware graph networks using high-order numerical methods in weather forecasting model
+  authors: [Y. Seol, S. Kim, M. Jung, Y. Hong]
+  venue: Knowledge-Based Systems
+  year: 2024
+  type: journal
+  topics: [Scientific machine learning, Climate]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0950705124007925
+
+- title: The long wavelength limit of periodic solutions of water wave models
+  authors: [J. Bona, H. Chen, Y. Hong, M. Panthee, M. Scialom]
+  venue: Studies in Applied Mathematics
+  year: 2024
+  type: journal
+  topics: [PDE theory, Water waves]
+  paper: https://onlinelibrary.wiley.com/doi/10.1111/sapm.12705
+
+- title: Semi-analytic PINN methods for boundary layer problems in a rectangular domain
+  authors: [G.-M. Gie, Y. Hong, C.-Y. Jung, T. Munkhjin]
+  venue: Journal of Computational and Applied Mathematics
+  year: 2024
+  type: journal
+  topics: [Physics-informed ML, PDE theory]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0377042724002395
+  arxiv: https://arxiv.org/abs/2312.06278
+
+- title: Singular layer physics informed neural network method for plane parallel flows
+  authors: [T.-Y. Chang, G.-M. Gie, Y. Hong, C.-Y. Jung]
+  venue: Computers and Mathematics with Applications
+  year: 2024
+  type: journal
+  topics: [Physics-informed ML, PDE theory]
+  arxiv: https://arxiv.org/abs/2311.15304
+
+- title: Spectral Operator Learning for Parametric PDEs Without Data Reliance
+  authors: [J. Choi, T. Yun, N. Kim, Y. Hong]
+  venue: Computer Methods in Applied Mechanics and Engineering
+  year: 2024
+  type: journal
+  topics: [Operator learning]
+  paper: https://www.sciencedirect.com/science/article/abs/pii/S0045782523008010
+  arxiv: https://arxiv.org/abs/2310.02013
+
+- title: Semi-analytic PINN methods for singularly perturbed boundary value problems
+  authors: [G.-M. Gie, Y. Hong, C.-Y. Jung]
+  venue: Applicable Analysis
+  year: 2024
+  type: journal
+  topics: [Physics-informed ML, PDE theory]
+  paper: https://www.tandfonline.com/doi/abs/10.1080/00036811.2024.2302405
+  arxiv: https://arxiv.org/abs/2208.09145
+
+- title: Physics-Informed Convolutional Transformer for predicting Volatility Surface
+  authors: [S. Kim, S.-B. Yun, H.-O. Bae, M. Lee, Y. Hong]
+  venue: Quantitative Finance
+  year: 2024
+  type: journal
+  topics: [Physics-informed ML, Applications]
+  paper: https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799
+  arxiv: https://arxiv.org/abs/2209.10771
+
+# ─────────────────────────── 2023 ───────────────────────────
+
+- title: Separable Physics-Informed Neural Networks
+  authors: [J. Cho, S. Nam, H. Yang, S.-B. Yun, Y. Hong, E. Park]
+  venue: NeurIPS
+  year: 2023
+  type: conference
+  topics: [Physics-informed ML]
+  highlight: true
+  paper: https://proceedings.neurips.cc/paper_files/paper/2023/hash/4af827e7d0b7bdae6097d44977e87534-Abstract-Conference.html
+  arxiv: https://arxiv.org/abs/2306.15969
+
+- title: Deep neural network for solving differential equations motivated by Legendre-Galerkin approximation
+  authors: [B. Chudomelka, Y. Hong, J. Morgan, H. Kim, J. Park]
+  venue: International Journal of Numerical Analysis and Modeling
+  year: 2023
+  type: journal
+  topics: [Physics-informed ML, Numerical analysis]
+  paper: https://global-sci.com/article/91363/deep-neural-network-for-solving-differential-equations-motivated-by-legendre-galerkin-approximation
+  arxiv: https://arxiv.org/abs/2010.12975
+
+- title: Unsupervised Legendre-Galerkin Neural Network for Solving Partial Differential Equations
+  authors: [J. Choi, N. Kim, Y. Hong]
+  venue: IEEE Access
+  year: 2023
+  type: journal
+  topics: [Physics-informed ML, Numerical analysis]
+  paper: https://ieeexplore.ieee.org/document/10043713/
+  arxiv: https://arxiv.org/abs/2207.10241
+
+- title: Data-efficient deep generative model with discrete latent representations for high-fidelity digital materials
+  authors: [N. Kim, D. Lee, Y. Hong]
+  venue: ACS Materials Letters
+  year: 2023
+  type: journal
+  topics: [Generative models, Metamaterials]
+  paper: https://pubs.acs.org/doi/10.1021/acsmaterialslett.2c01096
+
+# ─────────────────────────── 2022 ───────────────────────────
+
+- title: "PIXEL: Physics-Informed Cell Representations for Fast and Accurate PDE Solvers"
+  authors: [N. Kang, B. Lee, Y. Hong, S. Yun, E. Park]
+  venue: AAAI
+  year: 2022
+  type: conference
+  topics: [Physics-informed ML]
+  paper: https://ojs.aaai.org/index.php/AAAI/article/view/25988
+  arxiv: https://arxiv.org/abs/2207.12800
+
+- title: Invertible Monotone Operators for Normalizing Flows
+  authors: [B. Ahn, C. Kim, Y. Hong, H. Kim]
+  venue: NeurIPS
+  year: 2022
+  type: conference
+  topics: [Generative models]
+  paper: https://proceedings.neurips.cc/paper_files/paper/2022/hash/6afae862e1abc2ea396c5e842be54a52-Abstract-Conference.html
+  arxiv: https://arxiv.org/abs/2210.08176
+
+- title: Data-driven design of thin-film optical systems using deep active learning
+  authors: [Y. Hong, D. P. Nicholls]
+  venue: Optics Express
+  year: 2022
+  type: journal
+  topics: [Optics, Scientific machine learning]
+  paper: https://opg.optica.org/oe/fulltext.cfm?uri=oe-30-13-22901
+
+- title: Numerical study of the generalized Korteweg-de Vries equations with oscillating nonlinearities and boundary conditions
+  authors: [Y. Hong, J. Bona]
+  venue: Water Waves
+  year: 2022
+  type: journal
+  topics: [Water waves, Numerical analysis]
+  paper: https://link.springer.com/article/10.1007/s42286-022-00057-5
+
+- title: Deep learning simulation of the SIRD model of Covid-19 with vaccination effects
+  authors: [A. Bousquet, W. Conrad, O. Sadat, N. Vardanyan, Y. Hong]
+  venue: Scientific Reports
+  year: 2022
+  type: journal
+  topics: [Scientific machine learning, Applications]
+  paper: https://www.nature.com/articles/s41598-022-06992-0
+
+- title: Viscosity approximation of the solution to Burgers' equations with shock layers
+  authors: [J. Choi, Y. Hong, C.-Y. Jung, H. Lee]
+  venue: Applicable Analysis
+  year: 2022
+  type: journal
+  topics: [PDE theory]
+  paper: https://www.tandfonline.com/doi/full/10.1080/00036811.2021.1951714
+
+# ─────────────────────────── 2021 ───────────────────────────
+
+- title: Accelerating optimal experimental design for robust synchronization of uncertain Kuramoto oscillator model using machine learning
+  authors: [H.-M. Woo, Y. Hong, B. Kwon, B.-J Yoon]
+  venue: IEEE Transactions on Signal Processing
+  year: 2021
+  type: journal
+  topics: [Machine learning theory, Applications]
+  paper: https://ieeexplore.ieee.org/document/9627786/
+  arxiv: https://arxiv.org/abs/2106.00332
+
+- title: On the consistent choice of effective permittivity and effective conductivity for modeling graphene
+  authors: [Y. Hong, D. P. Nicholls]
+  venue: Journal of the Optical Society of America A
+  year: 2021
+  type: journal
+  topics: [Optics, Metamaterials]
+  paper: https://opg.optica.org/josaa/abstract.cfm?uri=josaa-38-10-1511
+
+- title: Optimal experimental design for uncertain systems based on coupled differential equations
+  authors: [Y. Hong, B. Kwon, B.-J. Yoon]
+  venue: IEEE Access
+  year: 2021
+  type: journal
+  topics: [Applications]
+  paper: https://ieeexplore.ieee.org/document/9395128/
+  arxiv: https://arxiv.org/abs/2007.06117
+
+- title: Robust neural networks inspired by strong stability preserving Runge-Kutta methods
+  authors: [B. Kim, B. Chudomelka, J. Park, J. Kang, Y. Hong, H. Kim]
+  venue: ECCV
+  year: 2021
+  type: conference
+  topics: [Machine learning theory, Numerical analysis]
+  paper: https://link.springer.com/chapter/10.1007/978-3-030-58545-7_24
+  arxiv: https://arxiv.org/abs/2010.10047
+
+- title: A rigorous numerical analysis of the transformed field expansion method for diffraction by periodic and layered structures
+  authors: [Y. Hong, D. P. Nicholls]
+  venue: SIAM Journal on Numerical Analysis
+  year: 2021
+  type: journal
+  topics: [Optics, Numerical analysis]
+  paper: https://epubs.siam.org/doi/10.1137/20M131374X
+
+# ─────────────────────────── 2020 ───────────────────────────
+
+- title: Enriched numerical scheme for singularly perturbed Quasi-Geostrophic equations
+  authors: [M. Chekroun, Y. Hong, R. Temam]
+  venue: Journal of Computational Physics
+  year: 2020
+  type: journal
+  topics: [Numerical analysis, Climate]
+  paper: https://www.sciencedirect.com/science/article/pii/S0021999120302679
+
+- title: Numerical simulations of inviscid hydrostatic primitive equations of humid atmosphere above a mountain
+  authors: [A. Bousquet, Y. Hong, R. Temam, J. Tribbia]
+  venue: Journal of Scientific Computing
+  year: 2020
+  type: journal
+  topics: [Numerical analysis, Climate]
+  paper: https://link.springer.com/article/10.1007/s10915-020-01215-y
+
+# ─────────────────────────── 2019 ───────────────────────────
+
+- title: Periodic Corrugations to Increase Efficiency of Thermophotovoltaic Emitting Structures
+  authors: [Y. Hong, M. Otten, M. Min, S. Gray, D. Nicholls]
+  venue: Applied Physics Letters
+  year: 2019
+  type: journal
+  topics: [Optics, Metamaterials]
+  paper: https://aip.scitation.org/doi/10.1063/1.5080548
+
+- title: Numerical study of the second-order correct Hamiltonian model for unidirectional water waves
+  authors: [J. Bona, H. Chen, Y. Hong, O. Karakashian]
+  venue: Water Waves
+  year: 2019
+  type: journal
+  topics: [Water waves, Numerical analysis]
+  paper: https://link.springer.com/article/10.1007/s42286-019-00003-y
+
+# ─────────────────────────── 2018 ───────────────────────────
+
+- title: A High-Order Perturbation of Surfaces Method for Vector Electromagnetic Scattering by Doubly Layered Periodic Crossed Gratings
+  authors: [Y. Hong, D. P. Nicholls]
+  venue: Journal of Computational Physics
+  year: 2018
+  type: journal
+  topics: [Optics, Numerical analysis]
+  paper: https://www.sciencedirect.com/science/article/pii/S0021999118304194
+
+- title: Boundary layer analysis for the stochastic nonlinear reaction-diffusion equations
+  authors: [Y. Hong, C.-Y. Jung, R. Temam]
+  venue: Physica D
+  year: 2018
+  type: journal
+  topics: [PDE theory]
+  paper: http://www.sciencedirect.com/science/article/pii/S0167278917301501
+
+- title: Enriched spectral method for stiff convection-dominated equations
+  authors: [Y. Hong, C.-Y. Jung]
+  venue: Journal of Scientific Computing
+  year: 2018
+  type: journal
+  topics: [Numerical analysis, PDE theory]
+  paper: https://link.springer.com/article/10.1007/s10915-017-0494-8
+
+# ─────────────────────────── 2017 ───────────────────────────
+
+- title: A high-order perturbation of surfaces method for scattering of linear waves by periodic multiply layered gratings in two and three dimensions
+  authors: [Y. Hong, D. P. Nicholls]
+  venue: Journal of Computational Physics
+  year: 2017
+  type: journal
+  topics: [Optics, Numerical analysis]
+  paper: http://www.sciencedirect.com/science/article/pii/S0021999117303868
+
+- title: A stable high-order perturbation of surfaces method for numerical simulation of diffraction problems in triply layered media
+  authors: [Y. Hong, D. P. Nicholls]
+  venue: Journal of Computational Physics
+  year: 2017
+  type: journal
+  topics: [Optics, Numerical analysis]
+  paper: http://www.sciencedirect.com/science/article/pii/S0021999116305654
+
+- title: Asymptotic analysis of the scattering problem for the Helmholtz equations with high wave numbers
+  authors: [D. Bouche, Y. Hong, C.-Y. Jung]
+  venue: Discrete and Continuous Dynamical Systems - Series A
+  year: 2017
+  type: journal
+  topics: [PDE theory, Optics]
+  paper: http://www.aimsciences.org/journals/displayArticlesnew.jsp?paperID=13498
+
+# ─────────────────────────── 2016 ───────────────────────────
+
+- title: Global attractor of atmospheric equations
+  authors: [Y. Hong]
+  venue: Asymptotic Analysis
+  year: 2016
+  type: journal
+  topics: [PDE theory, Climate]
+  paper: http://content.iospress.com/articles/asymptotic-analysis/asy1332
+
+# ─────────────────────────── 2015 ───────────────────────────
+
+- title: Numerical simulations of the humid atmosphere above a mountain
+  authors: [A. Bousquet, M. Chekroun, Y. Hong, R. Temam, J. Tribbia]
+  venue: Mathematics of Climate and Weather Forecasting
+  year: 2015
+  type: journal
+  topics: [Climate, Numerical analysis]
+  paper: https://www.degruyter.com/view/j/mcwf.2015.1.issue-1/mcwf-2015-0005/mcwf-2015-0005.xml
+
+- title: Timestepping schemes for the 3d Navier-Stokes equations
+  authors: [Y. Hong, D. Wirosoetisno]
+  venue: Applied Numerical Mathematics
+  year: 2015
+  type: journal
+  topics: [Numerical analysis]
+  paper: http://www.sciencedirect.com/science/article/pii/S016892741500094X
+
+- title: Singular perturbation analysis of time dependent convection-diffusion equations in a circle
+  authors: [Y. Hong, C.-Y. Jung, R. Temam]
+  venue: "Nonlinear Analysis: Theory, Methods & Applications"
+  year: 2015
+  type: journal
+  topics: [PDE theory]
+  paper: http://www.sciencedirect.com/science/article/pii/S0362546X14002715
+
+- title: Numerical approximation of the singularly perturbed heat equation in a circle
+  authors: [Y. Hong]
+  venue: Journal of Scientific Computing
+  year: 2015
+  type: journal
+  topics: [PDE theory, Numerical analysis]
+  paper: http://download.springer.com/static/pdf/702/art%253A10.1007%252Fs10915-014-9845-x.pdf
+
+# ─────────────────────────── 2014 ───────────────────────────
+
+- title: A higher order finite volume resolution method for a system related to the inviscid primitive equations in a complex domain
+  authors: [A. Bousquet, G.-M. Gie, Y. Hong, J. Laminie]
+  venue: Numerische Mathematik
+  year: 2014
+  type: journal
+  topics: [Numerical analysis, Climate]
+  paper: http://link.springer.com/article/10.1007/s00211-014-0622-4
+
+- title: On the numerical approximations of stiff convection-diffusion equations in a circle
+  authors: [Y. Hong, C.-Y. Jung, R. Temam]
+  venue: Numerische Mathematik
+  year: 2014
+  type: journal
+  topics: [Numerical analysis, PDE theory]
+  paper: http://link.springer.com/article/10.1007/s00211-013-0585-x
+
+# ─────────────────────────── 2013 ───────────────────────────
+
+- title: Singularly perturbed reaction-diffusion equations in a circle with numerical applications
+  authors: [Y. Hong, C.-Y. Jung, J. Laminie]
+  venue: International Journal of Computer Mathematics
+  year: 2013
+  type: journal
+  topics: [PDE theory, Numerical analysis]
+  paper: http://www.tandfonline.com/doi/abs/10.1080/00207160.2013.772987
+
+# ─────────────────────────── 2012 ───────────────────────────
+
+- title: Analysis of a penalty method
+  authors: [Q. Chen, Y. Hong, R. Temam]
+  venue: Journal of Scientific Computing
+  year: 2012
+  type: journal
+  topics: [PDE theory, Numerical analysis]
+  paper: http://link.springer.com/article/10.1007/s10915-011-9553-8

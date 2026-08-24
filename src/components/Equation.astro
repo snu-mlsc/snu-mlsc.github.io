@@ -1,0 +1,26 @@
+---
+// 인라인 KaTeX 수식.  <Equation formula="\\| u - u_\\theta \\| \\le C N^{-\\alpha}" />
+// display=true 로 주면 블록 (수식 자체 줄) 모드.
+import katex from 'katex';
+
+interface Props { formula: string; display?: boolean; ariaLabel?: string; }
+const { formula, display = false, ariaLabel } = Astro.props;
+
+const html = katex.renderToString(formula, {
+  throwOnError: false,
+  displayMode: display,
+  output: 'html',
+  strict: 'ignore',
+});
+---
+<span
+  class:list={["eq", { block: display }]}
+  set:html={html}
+  aria-label={ariaLabel ?? formula}
+></span>
+
+<style>
+  .eq { font-family: var(--font-mono); color: var(--plum); font-size: var(--step-1); }
+  .eq.block { display: block; text-align: center; margin: 1.2rem 0; }
+  .eq :global(.katex) { font-size: 1.05em; }
+</style>

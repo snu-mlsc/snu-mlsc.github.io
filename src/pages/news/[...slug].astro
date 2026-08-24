@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const items = await getCollection('news');
+  return items.map((item) => ({ params: { slug: item.id }, props: { item } }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' });
+---
+<Base title={`${item.data.title} — MLSC Lab`} description={item.data.summary}>
+  <article class="section wrap post">
+    <p class="eyebrow">{fmt(item.data.date)} · {item.data.kind}</p>
+    <h1>{item.data.title}</h1>
+    {item.data.summary && <p class="summary">{item.data.summary}</p>}
+    <div class="prose"><Content /></div>
+    {item.data.link && <p class="ext"><a href={item.data.link}>Read more</a></p>}
+    <p class="back"><a href="/news/">← All news</a></p>
+  </article>
+</Base>
+
+<style>
+  .post { max-width: 46rem; }
+  h1 { font-size: var(--step-3); margin-bottom: 1rem; }
+  .summary { font-size: var(--step-1); color: var(--ink-2); line-height: 1.5; }
+  .prose :global(p) { color: var(--ink-2); }
+  .ext a, .back a { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .back { margin-top: 3rem; }
+</style>

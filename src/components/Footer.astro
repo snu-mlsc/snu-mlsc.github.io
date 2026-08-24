@@ -1,0 +1,36 @@
+---
+const year = new Date().getFullYear();
+---
+<footer>
+  <div class="wrap inner">
+    <div>
+      <p class="name">Machine Learning &amp; Scientific Computing Lab</p>
+      <p class="addr">
+        Department of Mathematical Sciences, Seoul National University<br />
+        1 Gwanak-ro, Gwanak-gu, Seoul 08826, Republic of Korea
+      </p>
+    </div>
+    <ul class="links">
+      <li><a href="https://www.snu.ac.kr">Seoul National University</a></li>
+      <li><a href="http://www.math.snu.ac.kr">Dept. of Mathematical Sciences</a></li>
+      <li><a href="/news/">News &amp; events</a></li>
+    </ul>
+  </div>
+  <div class="wrap"><p class="fine">© {year} MLSC Lab</p></div>
+</footer>
+
+<style>
+  footer { border-top: 1px solid var(--rule); padding-block: 3rem 2rem; margin-top: 4rem; }
+  .inner { display: flex; flex-wrap: wrap; gap: 2rem 4rem; justify-content: space-between; }
+  .name { font-family: var(--font-display); font-size: var(--step-1); margin-bottom: 0.4rem; }
+  .addr { color: var(--ink-2); font-size: var(--step--1); line-height: 1.7; margin: 0; }
+  .links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; font-size: var(--step--1); }
+  .links a { color: var(--ink-2); text-decoration: none; }
+  .links a:hover { color: var(--ink); text-decoration: underline; }
+  .fine {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-3);
+    margin: 2.5rem 0 0;
+  }
+</style>

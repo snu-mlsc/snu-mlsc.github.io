@@ -1,0 +1,94 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PubItem from '../components/PubItem.astro';
+
+const members = await getCollection('members');
+const labNames = members.map((m) => m.data.name);
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const years = [...new Set(pubs.map((p) => p.data.year))].sort((a, b) => b - a);
+
+const topicCounts = new Map<string, number>();
+pubs.forEach((p) => p.data.topics.forEach((t) => topicCounts.set(t, (topicCounts.get(t) ?? 0) + 1)));
+const topics = [...topicCounts.entries()].sort((a, b) => b[1] - a[1]);
+const slugify = (s: string) => s.toLowerCase().replace(/[^\w]+/g, '-').replace(/(^-|-$)/g, '');
+---
+<Base title="Publications — MLSC Lab" description="Papers from the Machine Learning and Scientific Computing Lab at Seoul National University.">
+  <section class="section wrap head">
+    <p class="eyebrow">Publications</p>
+    <h1>Papers from the group.</h1>
+    <p class="jump">
+      {years.map((y) => <a href={`#y${y}`}>{y}</a>)}
+    </p>
+  </section>
+
+  <section class="wrap filters" aria-label="Filter by topic">
+    <button type="button" class="chip active" data-topic="all">All <span class="c">{pubs.length}</span></button>
+    {topics.map(([t, n]) => (
+      <button type="button" class="chip" data-topic={slugify(t)}>{t} <span class="c">{n}</span></button>
+    ))}
+  </section>
+
+  {years.map((year) => (
+    <>
+      <hr class="rule" />
+      <section class="section wrap year-block" id={`y${year}`}>
+        <h2>{year}</h2>
+        <div>
+          {pubs.filter((p) => p.data.year === year).map((p) => <PubItem pub={p.data} labNames={labNames} />)}
+        </div>
+      </section>
+    </>
+  ))}
+</Base>
+
+<style>
+  .head h1 { font-size: var(--step-3); }
+  .jump { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+  .jump a { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); text-decoration: none; }
+  .jump a:hover { text-decoration: underline; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: 0.55rem; padding-bottom: 2.5rem; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--ink-2);
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 120ms, color 120ms, border-color 120ms;
+  }
+  .chip:hover { border-color: var(--accent); color: var(--ink); }
+  .chip.active { background: var(--accent); color: var(--paper); border-color: var(--accent); }
+  .chip .c { opacity: 0.6; margin-left: 0.25rem; }
+  .chip.active .c { opacity: 0.85; }
+
+  .year-block { display: grid; grid-template-columns: minmax(0, 8rem) minmax(0, 1fr); gap: 1.5rem; scroll-margin-top: 5rem; }
+  @media (max-width: 44rem) { .year-block { grid-template-columns: 1fr; } }
+  h2 { font-family: var(--font-mono); font-weight: 400; font-size: var(--step-1); color: var(--ink-3); }
+  .year-block > div > :global(.pub:last-child) { border-bottom: 1px solid var(--rule); }
+  .year-block.hidden { display: none; }
+</style>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.chip');
+  const pubs = document.querySelectorAll<HTMLElement>('.pub');
+  const blocks = document.querySelectorAll<HTMLElement>('.year-block');
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      const topic = chip.dataset.topic ?? 'all';
+      chips.forEach((c) => c.classList.toggle('active', c === chip));
+      pubs.forEach((p) => {
+        const ts = (p.dataset.topics ?? '').split(' ');
+        const match = topic === 'all' || ts.includes(topic);
+        p.style.display = match ? '' : 'none';
+      });
+      blocks.forEach((b) => {
+        const anyVisible = [...b.querySelectorAll<HTMLElement>('.pub')].some((p) => p.style.display !== 'none');
+        b.classList.toggle('hidden', !anyVisible);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,60 @@
+---
+interface Props {
+  pub: {
+    title: string; authors: string[]; venue: string; year: number;
+    type: string; topics: string[];
+    paper?: string; arxiv?: string; code?: string; doi?: string;
+  };
+  labNames: string[];
+}
+const { pub, labNames } = Astro.props;
+const links = [
+  ['Paper', pub.paper], ['arXiv', pub.arxiv], ['DOI', pub.doi], ['Code', pub.code],
+].filter(([, href]) => href) as [string, string][];
+const slugify = (s: string) => s.toLowerCase().replace(/[^\w]+/g, '-').replace(/(^-|-$)/g, '');
+const topicSlugs = pub.topics.map(slugify).join(' ');
+---
+<article class="pub" data-topics={topicSlugs}>
+  <p class="meta"><span class="year">{pub.year}</span> <span class="kind">{pub.type}</span></p>
+  <div>
+    <h3>{pub.title}</h3>
+    <p class="authors">
+      {pub.authors.map((a, i) => (
+        <>
+          {labNames.includes(a) ? <b>{a}</b> : <span>{a}</span>}{i < pub.authors.length - 1 ? ', ' : ''}
+        </>
+      ))}
+    </p>
+    <p class="venue">{pub.venue}</p>
+    {links.length > 0 && (
+      <p class="links">{links.map(([label, href]) => <a href={href}>{label}</a>)}</p>
+    )}
+  </div>
+</article>
+
+<style>
+  .pub {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0 1.5rem;
+    padding-block: 1.6rem;
+    border-top: 1px solid var(--rule);
+  }
+  @media (max-width: 44rem) { .pub { grid-template-columns: 1fr; gap: 0.5rem; } }
+  .meta { font-family: var(--font-mono); font-size: var(--step--1); margin: 0.2rem 0 0; line-height: 1.4; }
+  .year { display: block; color: var(--ink); }
+  .kind { color: var(--ink-3); }
+  h3 { font-size: var(--step-1); margin-bottom: 0.45rem; }
+  .authors { font-size: var(--step--1); color: var(--ink-2); margin: 0 0 0.15rem; }
+  .authors b { color: var(--ink); font-weight: 600; }
+  .venue { font-size: var(--step--1); color: var(--ink-3); font-style: italic; margin: 0; }
+  .links { display: flex; gap: 1rem; margin: 0.6rem 0 0; }
+  .links a {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--accent-soft);
+  }
+  .links a:hover { border-bottom-color: var(--accent); }
+</style>

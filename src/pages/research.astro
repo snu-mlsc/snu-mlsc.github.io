@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Equation from '../components/Equation.astro';
+
+const areas = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(
+  areas.map(async (a) => ({ data: a.data, Content: (await render(a)).Content }))
+);
+---
+<Base title="Research — MLSC Lab" description="Research areas of the Machine Learning and Scientific Computing Lab at Seoul National University.">
+  <section class="section wrap head">
+    <p class="eyebrow">Research</p>
+    <h1>Three questions the group keeps coming back to.</h1>
+  </section>
+
+  {rendered.map(({ data, Content }) => (
+    <>
+      <hr class="rule" />
+      <section class="section wrap area">
+        <div class="side">
+          <p class="equation"><Equation formula={data.equation} /></p>
+          <p class="eqnote">{data.equationNote}</p>
+          {data.image && <img class="fig" src={`/research/${data.image}`} alt={`Figure from ${data.title} research`} loading="lazy" />}
+        </div>
+        <div class="body">
+          <h2>{data.title}</h2>
+          <p class="summary">{data.summary}</p>
+          <div class="prose"><Content /></div>
+        </div>
+      </section>
+    </>
+  ))}
+</Base>
+
+<style>
+  .head h1 { font-size: var(--step-3); max-width: 20ch; }
+  .area { display: grid; grid-template-columns: minmax(0, 24rem) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 4rem); }
+  @media (max-width: 48rem) { .area { grid-template-columns: 1fr; } }
+  .side { position: sticky; top: 5rem; align-self: start; }
+  @media (max-width: 48rem) { .side { position: static; } }
+  .eqnote { font-size: var(--step--1); color: var(--ink-3); margin: 0.4rem 0 0; line-height: 1.5; }
+  .fig { width: 100%; height: auto; margin-top: 1.5rem; border: 1px solid var(--rule); background: var(--paper-2); display: block; }
+  h2 { font-size: var(--step-2); margin-bottom: 0.9rem; }
+  .summary { font-size: var(--step-0); color: var(--ink-2); line-height: 1.6; margin-bottom: 1.6rem; }
+  .prose :global(p) { color: var(--ink-2); }
+</style>

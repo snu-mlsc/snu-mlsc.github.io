@@ -1,0 +1,253 @@
+---
+import fs from 'node:fs';
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PubItem from '../components/PubItem.astro';
+import Equation from '../components/Equation.astro';
+
+// public/lab-photo.{jpg,jpeg,png} 있으면 hero 아래에 자동으로 큰 배너로 나타남.
+const photoCandidates = ['lab-photo.jpg', 'lab-photo.jpeg', 'lab-photo.png'];
+const groupPhoto = photoCandidates.find((f) => fs.existsSync(`public/${f}`));
+
+// public/hero-bg.{jpg,jpeg,png} 있으면 hero 배경에 흐리게 오버레이됨.
+// 가로로 넓은 파노라마(2:1~2.5:1) 사진 권장. 얼굴이 알아볼 정도로만 흐려짐.
+const heroBgCandidates = ['hero-bg.jpg', 'hero-bg.jpeg', 'hero-bg.png'];
+const heroBg = heroBgCandidates.find((f) => fs.existsSync(`public/${f}`));
+
+const areas = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const members = await getCollection('members');
+const labNames = members.map((m) => m.data.name);
+const pubs = (await getCollection('publications'))
+  .filter((p) => p.data.highlight)
+  .sort((a, b) => b.data.year - a.data.year);
+const news = (await getCollection('news'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+---
+<Base title="MLSC Lab — Machine Learning and Scientific Computing, Seoul National University">
+  <section class="hero" style={heroBg ? `--hero-bg-url: url(/${heroBg});` : undefined}>
+    <div class="wrap hero-inner">
+      <p class="eyebrow attribution">Seoul National University · Dept. of Mathematical Sciences</p>
+      <h1>Machine Learning and Scientific Computing Lab</h1>
+      <p class="welcome">Welcome to the Machine Learning and Scientific Computing Lab!</p>
+      <p class="sub">
+        Our lab studies mathematical foundations and computational methods for
+        machine learning, scientific computing, and data-driven modeling.
+      </p>
+      <p class="cta">
+        <a href="/research/">Read about our research</a>
+        <a href="/publications/">Publications</a>
+      </p>
+    </div>
+  </section>
+
+  {groupPhoto && (
+    <figure class="group-hero">
+      <img src={`/${groupPhoto}`} alt="MLSC Lab group photo" loading="eager" />
+    </figure>
+  )}
+
+  <section class="section wrap">
+    <p class="eyebrow">What we study</p>
+    <div class="areas">
+      {areas.map((area) => (
+        <article class="area">
+          <p class="equation"><Equation formula={area.data.equation} /></p>
+          <p class="eqnote">{area.data.equationNote}</p>
+          <h2>{area.data.title}</h2>
+          <p class="summary">{area.data.summary}</p>
+        </article>
+      ))}
+    </div>
+    <p class="more"><a href="/research/">All research areas</a></p>
+  </section>
+
+  {news.length > 0 && (
+    <>
+      <hr class="rule" />
+      <section class="section wrap news-strip">
+        <div class="strip-head">
+          <p class="eyebrow">Latest</p>
+          <a class="more-link" href="/news/">All news →</a>
+        </div>
+        <ul class="news-cards">
+          {news.map((n) => (
+            <li>
+              <a href={`/news/${n.id}/`}>
+                <time datetime={n.data.date.toISOString()}>{fmt(n.data.date)}</time>
+                <span class="kind">{n.data.kind}</span>
+                <p class="title">{n.data.title}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  )}
+
+  <hr class="rule" />
+
+  <section class="section wrap">
+    <p class="eyebrow">Selected work</p>
+    <div class="pubs">
+      {pubs.map((p) => <PubItem pub={p.data} labNames={labNames} />)}
+    </div>
+    <p class="more"><a href="/publications/">Full publication list</a></p>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="section wrap join-section">
+    <p class="eyebrow">Joining the group</p>
+
+    <p class="subhead">For prospective students interested in working with me</p>
+
+    <p>
+      <b>SNU graduate students:</b> Due to current capacity constraints in my
+      group, I can only consider a very limited number of new students. If,
+      after carefully reviewing our recent publications, you believe your
+      background and research goals align well with the direction of the group,
+      please email me your CV for consideration.
+    </p>
+    <p>
+      <b>For students outside SNU:</b> Please follow the admission procedures
+      outlined on the official university website.
+    </p>
+
+    <p class="subhead">For students requesting a recommendation letter</p>
+
+    <p class="policy">
+      As a general policy, I write recommendation letters for no more than
+      three students per year, and for a maximum of ten institutions per
+      student. To be eligible, you must have earned at least an A grade in one
+      of my major courses, and I must be able to comment meaningfully on your
+      academic abilities and potential. Please consider this carefully before
+      making your request.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding-block: clamp(4rem, 9vw, 7rem);
+    background: var(--hero-grad);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+  /* hero-bg.{jpg,png} 파일이 있을 때만 페이드 배경으로 오버레이됨 */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--hero-bg-url, none) center/cover no-repeat;
+    opacity: 0.22;
+    z-index: 0;
+    pointer-events: none;
+  }
+  /* 배경 사진이 있을 때만: 텍스트 가독성 위한 밝은 오버레이 */
+  .hero[style*="--hero-bg-url"]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+      color-mix(in srgb, var(--paper) 55%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 30%, transparent) 50%,
+      color-mix(in srgb, var(--paper) 55%, transparent) 100%);
+    z-index: 0;
+    pointer-events: none;
+  }
+  .hero-inner { max-width: 62rem; margin: 0 auto; position: relative; z-index: 1; }
+
+  /* hero 안의 eyebrow 는 소제목 대신 조용한 attribution 스타일로 (가운데 정렬) */
+  .hero .eyebrow.attribution {
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    font-weight: 400;
+    color: var(--ink-2);
+    letter-spacing: 0;
+    text-transform: none;
+    text-align: center;
+    margin: 0 auto 1rem;
+    max-width: 60ch;
+  }
+
+  h1 { font-size: var(--step-3); max-width: 22ch; margin: 0.2rem auto 1.4rem; line-height: 1.15; }
+  .welcome { font-size: var(--step-1); color: var(--ink); margin: 0 auto 1.1rem; line-height: 1.4; max-width: 44ch; }
+  .sub { font-size: var(--step-0); color: var(--ink-2); max-width: 62ch; line-height: 1.65; margin: 0 auto; }
+  .cta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 2rem auto 0; justify-content: center; }
+  .cta a {
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    text-decoration: none;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--accent);
+  }
+  .cta a:hover { background: var(--accent-soft); }
+
+  .group-hero {
+    margin: 0;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+  }
+  .group-hero img {
+    width: 100%;
+    height: auto;
+    max-height: 62vh;
+    object-fit: cover;
+    display: block;
+  }
+
+  .news-strip { padding-block: clamp(2.5rem, 5vw, 4rem); }
+  .strip-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.4rem; gap: 1rem; }
+  .strip-head .eyebrow { margin: 0; }
+  .more-link { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); text-decoration: none; }
+  .more-link:hover { text-decoration: underline; }
+  .news-cards { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+  .news-cards a {
+    display: grid;
+    gap: 0.35rem;
+    padding: 1rem 1.1rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+    transition: border-color 120ms, transform 120ms;
+  }
+  .news-cards a:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .news-cards time { font-family: var(--font-mono); font-size: calc(var(--step--1) * 0.92); color: var(--ink-3); }
+  .news-cards .kind { font-family: var(--font-mono); font-size: calc(var(--step--1) * 0.85); text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent); }
+  .news-cards .title { font-size: var(--step-0); color: var(--ink); line-height: 1.35; margin: 0.2rem 0 0; }
+
+  .areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    gap: clamp(2rem, 4vw, 3.5rem);
+  }
+  .area h2 { font-size: var(--step-2); margin: 1.1rem 0 0.6rem; }
+  .eqnote { font-size: var(--step--1); color: var(--ink-3); margin: 0.35rem 0 0; line-height: 1.5; }
+  .summary { color: var(--ink-2); margin: 0; }
+
+  .more { margin: 2.5rem 0 0; }
+  .more a { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .more a:hover { border-bottom-color: var(--accent); }
+
+  .pubs { border-bottom: 1px solid var(--rule); }
+
+  .join-section .join { font-size: var(--step-2); margin: 0.5rem 0 1.2rem; }
+  .join-section p { max-width: 66ch; line-height: 1.7; }
+  .join-section .subhead {
+    font-family: var(--font-mono);
+    font-size: var(--step-0);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink);
+    font-weight: 500;
+    margin: 2.6rem 0 1rem;
+  }
+  .join-section .subhead:first-of-type { margin-top: 1.5rem; }
+  .join-section .policy { border-left: 2px solid var(--accent-soft); padding-left: 1.1rem; color: var(--ink-2); }
+</style>

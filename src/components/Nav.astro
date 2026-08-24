@@ -1,0 +1,68 @@
+---
+const links = [
+  { href: '/research/', label: 'Research' },
+  { href: '/people/', label: 'People' },
+  { href: '/publications/', label: 'Publications' },
+  { href: '/news/', label: 'News' },
+];
+const here = Astro.url.pathname;
+---
+<header class="bar">
+  <div class="wrap inner">
+    <a class="brand" href="/">
+      <span class="mark">MLSC</span>
+      <span class="full">Machine Learning &amp; Scientific Computing</span>
+    </a>
+    <nav aria-label="Main">
+      <ul>
+        {links.map((l) => (
+          <li>
+            <a href={l.href} aria-current={here.startsWith(l.href) ? 'page' : undefined}>{l.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .bar {
+    border-bottom: 1px solid var(--rule);
+    background: color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter: blur(8px);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+  }
+  .inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 1.5rem;
+    padding-block: 0.85rem;
+  }
+  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 0.7rem; margin-right: auto; }
+  .mark {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    font-size: var(--step-0);
+  }
+  .full {
+    font-size: var(--step--1);
+    color: var(--ink-3);
+    letter-spacing: 0.01em;
+  }
+  @media (max-width: 40rem) { .full { display: none; } }
+
+  nav ul { display: flex; gap: 1.25rem; list-style: none; margin: 0; padding: 0; }
+  nav a {
+    font-size: var(--step--1);
+    text-decoration: none;
+    color: var(--ink-2);
+    padding-bottom: 2px;
+    border-bottom: 1px solid transparent;
+  }
+  nav a:hover { color: var(--ink); border-bottom-color: var(--rule); }
+  nav a[aria-current='page'] { color: var(--ink); border-bottom-color: var(--accent); }
+</style>

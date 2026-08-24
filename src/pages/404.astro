@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Equation from '../components/Equation.astro';
+---
+<Base title="Page not found — MLSC Lab">
+  <section class="section wrap box">
+    <p class="equation"><Equation formula="404 \\notin \\text{domain}" /></p>
+    <h1>That page isn't here.</h1>
+    <p>The link may be out of date. Try <a href="/research/">research</a>, <a href="/publications/">publications</a>, or <a href="/people/">people</a>.</p>
+  </section>
+</Base>
+<style>
+  .box { min-height: 45vh; }
+  h1 { font-size: var(--step-3); margin: 0.8rem 0 1rem; }
+</style>

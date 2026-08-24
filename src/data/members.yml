@@ -1,0 +1,214 @@
+# 멤버 명단. 기존 사이트(devmlsc.snu.ac.kr)에서 옮겨왔어.
+#
+# role: pi / postdoc / phd / ms / undergrad / alumni  — 이걸로 섹션이 갈려.
+# 사진: public/people/ 에 넣고 파일명만 적으면 돼. 없으면 이니셜 사각형이 나와.
+#       기존 사이트 사진은 scripts/fetch-photos.sh 를 한 번 돌리면 다 받아져.
+# 이메일: 여기엔 그냥 평범하게 적어. 화면에는 기존 사이트처럼 [at] 로 바뀌어 나가고
+#        mailto 링크는 안 걸려 (스팸 수집 방지).
+
+# ─────────────────────────────── PI ───────────────────────────────
+
+- name: Youngjoon Hong
+  role: pi
+  title: Associate Professor
+  affiliations:
+    - Department of Mathematical Sciences, Seoul National University
+    - Affiliated Professor, Interdisciplinary Program in AI, Computer Science and Technology, Seoul National University
+    - Adjunct Professor, Center for Artificial Intelligence and Natural Sciences, Korea Institute for Advanced Study
+  employment:
+    - Associate Professor, Seoul National University, 2025–current
+    - Associate Professor, KAIST, 2023–2025
+    - Assistant Professor, Sungkyunkwan University, 2021–2023
+    - Assistant Professor, San Diego State University, 2018–2021
+    - Research Assistant Professor, University of Illinois at Chicago, 2015–2018 (Mentors — Jerry Bona, David Nicholls)
+  education:
+    - Ph.D. in Mathematics, Indiana University, 2015 (Advisor — Roger Temam)
+    - Ph.D. Minor in Scientific Computing, Indiana University, 2015
+  email: hongyj@snu.ac.kr
+  photo: hong.png
+
+# ───────────────────────── Postdoctoral ──────────────────────────
+
+- name: Changhoon Song
+  role: postdoc
+  title: Postdoctoral Researcher
+  interests: [Universal approximation theorem, Physics-informed neural networks, Scientific machine learning]
+  email: changhoon.song93@snu.ac.kr
+  website: https://sites.google.com/view/changhoonsong
+  photo: changhoon-song.jpg
+
+- name: Jinsil Lee
+  role: postdoc
+  title: Postdoctoral Researcher
+  interests: [PDE, Numerical methods, AI, Splines]
+  email: jl74942@snu.ac.kr
+  photo: jinsil-lee.jpg
+
+- name: Myeong-Su Lee
+  role: postdoc
+  title: Postdoctoral Researcher
+  interests: [Scientific machine learning, Kinetic theory, Optimization theory]
+  email: msl3573@snu.ac.kr
+  website: https://sites.google.com/view/mslee2/home
+  photo: myeong-su-lee.jpg
+
+- name: Myungje Choi
+  role: postdoc
+  title: Postdoctoral Researcher
+  interests: [Spatio-temporal forecasting, Dynamic graphs, Efficient routing for LLMs]
+  email: dnmslyyd@snu.ac.kr
+  photo: myungje-choi.jpg
+
+# ─────────────────────────── Ph.D. ───────────────────────────────
+
+- name: Chanyoung Kim
+  role: phd
+  title: Ph.D. Program
+  interests: [Operator learning, Quantum machine learning for PDEs]
+  email: chanyoung4math@gmail.com
+  website: https://chanyoung4math.github.io/
+  photo: chanyoung-kim.jpg
+
+- name: Dohyun Kim
+  role: phd
+  title: Ph.D. Program
+  interests: [Applied mathematics, Quantum computing]
+  email: dohyun0809@snu.ac.kr
+  photo: dohyun-kim.jpg
+
+- name: DoHyun Park
+  role: phd
+  title: Ph.D. Program
+  interests: [Machine learning, Climate prediction and weather forecasting]
+  email: do3204@snu.ac.kr
+  photo: dohyun-park.jpg
+
+- name: Dongseok Lee
+  role: phd
+  title: Ph.D. Program
+  interests: [Machine learning, Scientific machine learning]
+  email: lorafa@snu.ac.kr
+  photo: dongseok-lee.jpg
+
+- name: Hyeonseok Seo
+  role: phd
+  title: Ph.D. Program
+  interests: [Nonlinear PDE, Analytic aspects of deep learning, Physics-informed neural networks]
+  email: gustjr5623@naver.com
+  photo: hyeonseok-seo.jpg
+
+- name: Juhoon Kang
+  role: phd
+  title: Ph.D. Program
+  interests: [Numerical analysis, Machine learning for PDEs, Mathematical theory of machine learning]
+  email: juhoon08@snu.ac.kr
+  photo: juhoon-kang.png
+
+- name: Minkyung Sonn
+  role: phd
+  title: Ph.D. Program
+  interests: [Numerical analysis, PDE]
+  email: minkysonn@snu.ac.kr
+  photo: minkyung-sonn.jpg
+
+- name: Qunzhi Jin
+  role: phd
+  title: Ph.D. Program
+  interests: [Machine learning, Numerical analysis]
+  email: qunzhijin@hrbeu.edu.cn
+  photo: qunzhi-jin.jpg
+
+# ──────────────────────────── M.S. ───────────────────────────────
+
+- name: Chaewon Park
+  role: ms
+  title: M.S. Program
+  interests: [Scientific machine learning]
+  email: pchae12@snu.ac.kr
+  photo: chaewon-park.jpg
+
+- name: Hyungjun Joe
+  role: ms
+  title: M.S. Program
+  interests: [Machine learning, AI for science]
+  email: hyungjunjoe@snu.ac.kr
+  website: https://hyungjunjoe.github.io
+  photo: hyungjun-joe.jpg
+
+- name: Jiho Cheon
+  role: ms
+  title: M.S. Program
+  interests: [Machine learning, Deep learning]
+  email: 1000jiho@snu.ac.kr
+  photo: jiho-cheon.jpg
+
+- name: Junu Choi
+  role: ms
+  title: M.S. Program
+  interests: [Stochastic dynamics, Deep geometric analysis, Generative modeling]
+  email: junu0413@snu.ac.kr
+  website: https://junu-choi.github.io
+  photo: junu-choi.jpeg
+
+- name: Mansu Chung
+  role: ms
+  title: M.S. Program
+  interests: [PDEs, Climate prediction and weather forecasting]
+  email: mansu.chung314@snu.ac.kr
+  photo: mansu-chung.jpg
+
+- name: Seongjae Lim
+  role: ms
+  title: M.S. Program
+  interests: [Physics-informed machine learning, AI for science, Scientific machine learning]
+  email: fofo9286@snu.ac.kr
+  photo: seongjae-lim.jpg
+
+- name: Yechan Jeong
+  role: ms
+  title: M.S. Program
+  interests: [Reinforcement learning, Stochastic control]
+  email: yechan@snu.ac.kr
+  photo: yechan-jeong.jpg
+
+# ───────────────────── Undergraduate researcher ──────────────────
+
+- name: Daehyeop Kim
+  role: undergrad
+  title: Undergraduate Researcher
+  interests: [Physics-informed neural networks, 3D Gaussian splatting]
+  email: 2012abcd@snu.ac.kr
+  website: https://daehyeopkim.github.io/
+  photo: daehyeop-kim.jpg
+
+# ─────────────────────────── Alumni ──────────────────────────────
+
+- name: Teng-Yuan Chang
+  role: alumni
+  title: Postdoctoral Researcher, SNU (2024–2026)
+  until: "2026"
+  next: AI research company, Taipei
+
+- name: Jaemin Oh
+  role: alumni
+  title: Ph.D., KAIST (2025)
+  until: "2025"
+  next: Postdoctoral Researcher, Brown University
+
+- name: Junho Choi
+  role: alumni
+  title: Postdoctoral Researcher, KAIST (2022–2025)
+  until: "2025"
+  next: Postdoctoral Researcher, Peking University
+
+- name: Yunchang Seol
+  role: alumni
+  title: Postdoctoral Researcher, KAIST (2022–2024)
+  until: "2024"
+  next: Associate Professor, Chonnam National University
+
+- name: Seungchan Ko
+  role: alumni
+  title: Postdoctoral Researcher, Sungkyunkwan University (2022–2023)
+  until: "2023"
+  next: Assistant Professor, Inha University

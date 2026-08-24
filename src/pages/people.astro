@@ -1,0 +1,175 @@
+---
+import fs from 'node:fs';
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+// public/lab-photo.{jpg,png,jpeg} 를 넣어두면 자동으로 상단 배너에 표시돼.
+// 권장 사이즈: 가로 2000px 이상, 세로:가로 비율 약 1:2.5~1:3 (와이드 파노라마).
+const photoCandidates = ['lab-photo.jpg', 'lab-photo.jpeg', 'lab-photo.png'];
+const groupPhoto = photoCandidates.find((f) => fs.existsSync(`public/${f}`));
+
+const all = await getCollection('members');
+const by = (role: string) => all.filter((m) => m.data.role === role);
+const pi = by('pi');
+const groups = [
+  { label: 'Postdoctoral researchers', people: by('postdoc') },
+  { label: 'Ph.D. program', people: by('phd') },
+  { label: 'M.S. program', people: by('ms') },
+  { label: 'Undergraduate researchers', people: by('undergrad') },
+].filter((g) => g.people.length > 0);
+const alumni = by('alumni').sort((a, b) => (b.data.until ?? '').localeCompare(a.data.until ?? ''));
+
+const initials = (n: string) => n.split(' ').map((w) => w[0]).join('').slice(0, 2).toUpperCase();
+// 기존 사이트와 같은 방식으로 이메일을 가려서 표시 (mailto 링크 없음)
+const mask = (e: string) => e.replace('@', ' [at] ');
+---
+<Base title="People — MLSC Lab" description="Members of the Machine Learning and Scientific Computing Lab at Seoul National University.">
+  <section class="section wrap head">
+    <p class="eyebrow">People</p>
+    <h1>The group</h1>
+  </section>
+
+  {groupPhoto && (
+    <figure class="group-photo">
+      <img src={`/${groupPhoto}`} alt="MLSC Lab group photo" loading="lazy" />
+    </figure>
+  )}
+
+  {pi.map((m) => (
+    <>
+      <hr class="rule" />
+      <section class="section wrap pi">
+        <div class="portrait">
+          {m.data.photo
+            ? <img src={`/people/${m.data.photo}`} alt={m.data.name} loading="lazy" />
+            : <span>{initials(m.data.name)}</span>}
+          <p class="mail">{m.data.email && mask(m.data.email)}</p>
+        </div>
+        <div>
+          <p class="eyebrow">Principal investigator</p>
+          <h2>{m.data.name}{m.data.name_ko && <span class="ko"> {m.data.name_ko}</span>}</h2>
+          <p class="rank">{m.data.title}</p>
+          <ul class="affil">
+            {m.data.affiliations.map((a) => <li>{a}</li>)}
+          </ul>
+          {m.data.employment.length > 0 && (
+            <div class="cv">
+              <h3>Employment</h3>
+              <ul>{m.data.employment.map((e) => <li>{e}</li>)}</ul>
+            </div>
+          )}
+          {m.data.education.length > 0 && (
+            <div class="cv">
+              <h3>Education</h3>
+              <ul>{m.data.education.map((e) => <li>{e}</li>)}</ul>
+            </div>
+          )}
+        </div>
+      </section>
+    </>
+  ))}
+
+  {groups.map((g) => (
+    <>
+      <hr class="rule" />
+      <section class="section wrap">
+        <p class="eyebrow">{g.label}</p>
+        <div class="roster">
+          {g.people.map((m) => (
+            <article class="person">
+              <div class="avatar">
+                {m.data.photo
+                  ? <img src={`/people/${m.data.photo}`} alt={m.data.name} loading="lazy" />
+                  : <span>{initials(m.data.name)}</span>}
+              </div>
+              <div>
+                <h3>{m.data.name}{m.data.name_ko && <span class="ko"> {m.data.name_ko}</span>}</h3>
+                {m.data.interests.length > 0 && <p class="interests">{m.data.interests.join(' · ')}</p>}
+                {m.data.email && <p class="mail">{mask(m.data.email)}</p>}
+                {(m.data.website || m.data.github || m.data.scholar) && (
+                  <p class="contact">
+                    {m.data.website && <a href={m.data.website}>Website</a>}
+                    {m.data.scholar && <a href={m.data.scholar}>Scholar</a>}
+                    {m.data.github && <a href={m.data.github}>GitHub</a>}
+                  </p>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  ))}
+
+  {alumni.length > 0 && (
+    <>
+      <hr class="rule" />
+      <section class="section wrap">
+        <p class="eyebrow">Alumni</p>
+        <ul class="alumni">
+          {alumni.map((m) => (
+            <li>
+              <span class="yr">{m.data.until}</span>
+              <span>
+                <b>{m.data.name}</b>
+                {m.data.title && <span class="was"> — {m.data.title}</span>}
+                {m.data.next && <span class="next"><br />now {m.data.next}</span>}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  )}
+</Base>
+
+<style>
+  .head h1 { font-size: var(--step-3); }
+
+  .group-photo {
+    margin: 0 auto clamp(2rem, 5vw, 4rem);
+    max-width: var(--max);
+    padding-inline: var(--gutter);
+  }
+  .group-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+  }
+
+  .pi { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: start; }
+  @media (max-width: 44rem) { .pi { grid-template-columns: 1fr; } }
+  .portrait { display: grid; gap: 0.7rem; }
+  .portrait img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top center; border: 1px solid var(--rule); display: block; }
+  .portrait > span { aspect-ratio: 3 / 4; border: 1px solid var(--rule); background: var(--paper-2); display: grid; place-items: center; font-family: var(--font-mono); color: var(--ink-3); }
+  h2 { font-size: var(--step-3); }
+  .rank { font-size: var(--step-1); color: var(--ink-2); margin: 0.4rem 0 0.8rem; }
+  .affil { list-style: none; padding: 0; margin: 0 0 2rem; display: grid; gap: 0.45rem; max-width: 46ch; }
+  .affil li { font-size: var(--step--1); color: var(--ink-2); line-height: 1.5; padding-left: 0.9rem; border-left: 2px solid var(--rule); }
+  .cv { margin-top: 1.8rem; }
+  .cv h3 { font-family: var(--font-mono); font-weight: 400; font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-3); margin-bottom: 0.7rem; }
+  .cv ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+  .cv li { font-size: var(--step--1); color: var(--ink-2); line-height: 1.55; }
+
+  .roster { display: grid; grid-template-columns: repeat(auto-fill, minmax(28rem, 1fr)); gap: 2.8rem 3rem; }
+  .person { display: grid; grid-template-columns: 8rem 1fr; gap: 1.4rem; align-items: start; }
+  .avatar { aspect-ratio: 3 / 4; border: 1px solid var(--rule); background: var(--paper-2); display: grid; place-items: center; overflow: hidden; }
+  .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+  .avatar span { font-family: var(--font-mono); color: var(--ink-3); }
+  h3 { font-size: var(--step-1); }
+  .ko { color: var(--ink-3); font-size: 0.75em; font-family: var(--font-body); font-weight: 400; }
+  .interests { font-size: var(--step--1); color: var(--ink-2); margin: 0.35rem 0 0; line-height: 1.5; }
+  .mail { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-3); margin: 0.4rem 0 0; word-break: break-all; }
+  .contact { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 0.45rem 0 0; }
+  .contact a { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .contact a:hover { border-bottom-color: var(--accent); }
+
+  .alumni { list-style: none; padding: 0; margin: 0; }
+  .alumni li { display: grid; grid-template-columns: 4.5rem 1fr; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--rule); }
+  .alumni li:last-child { border-bottom: 1px solid var(--rule); }
+  .yr { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-3); }
+  .was { color: var(--ink-2); }
+  .next { color: var(--ink-3); font-size: var(--step--1); }
+</style>
