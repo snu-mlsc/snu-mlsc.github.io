@@ -14,7 +14,7 @@ const members = defineCollection({
   schema: z.object({
     name: z.string(),
     name_ko: z.string().optional(),
-    role: z.enum(['pi', 'postdoc', 'phd', 'ms', 'undergrad', 'alumni']),
+    role: z.enum(['pi', 'postdoc', 'phd', 'ms', 'undergrad', 'visiting', 'alumni']),
     title: z.string().optional(),       // 화면에 보일 직함 (예: "Ph.D. Student")
     affiliations: z.array(z.string()).default([]), // PI 용 — 겸직 소속을 줄바꿈해서 표시
     employment: z.array(z.string()).default([]),   // PI 용

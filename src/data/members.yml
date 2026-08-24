@@ -1,6 +1,6 @@
 # 멤버 명단. 기존 사이트(devmlsc.snu.ac.kr)에서 옮겨왔어.
 #
-# role: pi / postdoc / phd / ms / undergrad / alumni  — 이걸로 섹션이 갈려.
+# role: pi / postdoc / phd / ms / undergrad / visiting / alumni  — 이걸로 섹션이 갈려.
 # 사진: public/people/ 에 넣고 파일명만 적으면 돼. 없으면 이니셜 사각형이 나와.
 #       기존 사이트 사진은 scripts/fetch-photos.sh 를 한 번 돌리면 다 받아져.
 # 이메일: 여기엔 그냥 평범하게 적어. 화면에는 기존 사이트처럼 [at] 로 바뀌어 나가고
@@ -112,8 +112,8 @@
   photo: minkyung-sonn.jpg
 
 - name: Qunzhi Jin
-  role: phd
-  title: Ph.D. Program
+  role: visiting
+  title: Visiting Ph.D. Student
   interests: [Machine learning, Numerical analysis]
   email: qunzhijin@hrbeu.edu.cn
   photo: qunzhi-jin.jpg

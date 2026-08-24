@@ -16,6 +16,7 @@ const groups = [
   { label: 'Ph.D. program', people: by('phd') },
   { label: 'M.S. program', people: by('ms') },
   { label: 'Undergraduate researchers', people: by('undergrad') },
+  { label: 'Visiting students', people: by('visiting') },
 ].filter((g) => g.people.length > 0);
 const alumni = by('alumni').sort((a, b) => (b.data.until ?? '').localeCompare(a.data.until ?? ''));
 
