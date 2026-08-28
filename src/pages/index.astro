@@ -136,13 +136,16 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
     overflow: hidden;
     text-align: center;
   }
-  /* hero-bg.{jpg,png} 파일이 있을 때만 페이드 배경으로 오버레이됨 */
+  /* hero-bg.{jpg,png} 파일이 있을 때만 페이드 배경으로 오버레이됨.
+     inset 을 음수로 빼는 이유: blur 가 가장자리를 투명하게 번지게 해서
+     섹션 경계에 흐릿한 테두리가 생기는 걸 막으려고 화면 밖으로 넘겨둠. */
   .hero::before {
     content: '';
     position: absolute;
-    inset: 0;
+    inset: -3rem;
     background: var(--hero-bg-url, none) center/cover no-repeat;
-    opacity: 0.22;
+    filter: blur(4px);
+    opacity: 0.4;
     z-index: 0;
     pointer-events: none;
   }
@@ -152,9 +155,9 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-      color-mix(in srgb, var(--paper) 55%, transparent) 0%,
-      color-mix(in srgb, var(--paper) 30%, transparent) 50%,
-      color-mix(in srgb, var(--paper) 55%, transparent) 100%);
+      color-mix(in srgb, var(--paper) 62%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 46%, transparent) 50%,
+      color-mix(in srgb, var(--paper) 62%, transparent) 100%);
     z-index: 0;
     pointer-events: none;
   }
