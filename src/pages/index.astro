@@ -133,8 +133,10 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
     padding-block: clamp(4rem, 9vw, 7rem);
     background: var(--hero-grad);
     position: relative;
-    overflow: hidden;
+    overflow: clip;                     /* clip 은 sticky 를 안 깨뜨림 (hidden 은 깸) */
     text-align: center;
+    min-height: 150vh;                  /* 스크롤 여유 확보: sticky 텍스트가 더 오래 붙어있음 */
+    /* flex 로 세로 가운데 정렬 제거 → 텍스트가 위에 위치 */
   }
   /* hero-bg.{jpg,png} 파일이 있을 때만 페이드 배경으로 오버레이됨.
      inset 을 음수로 빼는 이유: blur 가 가장자리를 투명하게 번지게 해서
@@ -142,10 +144,10 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
   .hero::before {
     content: '';
     position: absolute;
-    inset: -3rem;
-    background: var(--hero-bg-url, none) center/cover no-repeat;
-    filter: blur(4px);
-    opacity: 0.4;
+    inset: 0;                                                            /* -2rem 대신 0 → 뒤로 물러난 만큼 사진 안 잘림 */
+    background: var(--hero-bg-url, none) center top / 100% auto no-repeat; /* 100% 폭·자연 높이: 좌우 안 잘림, 위쪽 앵커 */
+    filter: blur(1px);
+    opacity: 0.65;
     z-index: 0;
     pointer-events: none;
   }
@@ -155,13 +157,19 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
     position: absolute;
     inset: 0;
     background: linear-gradient(180deg,
-      color-mix(in srgb, var(--paper) 62%, transparent) 0%,
-      color-mix(in srgb, var(--paper) 46%, transparent) 50%,
-      color-mix(in srgb, var(--paper) 62%, transparent) 100%);
+      color-mix(in srgb, var(--paper) 48%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 30%, transparent) 50%,
+      color-mix(in srgb, var(--paper) 48%, transparent) 100%);
     z-index: 0;
     pointer-events: none;
   }
-  .hero-inner { max-width: 62rem; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-inner {
+    max-width: 62rem;
+    margin: 0 auto;
+    position: sticky;                /* 텍스트는 처음에 위에 있고, 스크롤 시 top: 5vh 자리에 붙어 사진이 뒤로 지나감 */
+    top: 5vh;
+    z-index: 1;
+  }
 
   /* hero 안의 eyebrow 는 소제목 대신 조용한 attribution 스타일로 (가운데 정렬) */
   .hero .eyebrow.attribution {
