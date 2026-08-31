@@ -61,6 +61,33 @@
   year: 2026
   type: journal
   topics: [Operator learning, Inverse problems]
+  doi: https://doi.org/10.1016/j.engappai.2025.113665
+
+- title: "AI for atmosphere-ocean sciences: advancements, challenges and ways forward"
+  authors: [J.-J. Luo, et al.]
+  venue: National Science Review
+  year: 2026
+  type: journal
+  topics: [Climate, Scientific machine learning]
+  paper: https://academic.oup.com/nsr/article/13/5/nwag063/8444589
+  doi: https://doi.org/10.1093/nsr/nwag063
+
+- title: Neural advection-diffusion equation for long-term climate dynamics
+  authors: [N. Cho, et al.]
+  venue: Neurocomputing
+  year: 2026
+  type: journal
+  topics: [Physics-informed ML, Climate]
+  paper: https://www.sciencedirect.com/science/article/pii/S0925231226018989
+  doi: https://doi.org/10.1016/j.neucom.2026.134500
+
+- title: Physics-informed neural networks for the fully coupled electrochemical-thermal pseudo-2D model of lithium-ion batteries
+  authors: [D.-C. Lee, et al.]
+  venue: Journal of Energy Storage
+  year: 2026
+  type: journal
+  topics: [Physics-informed ML, Applications]
+  paper: https://www.sciencedirect.com/science/article/pii/S2352152X26036583
 
 # ─────────────────────────── 2025 ───────────────────────────
 

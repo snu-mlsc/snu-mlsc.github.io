@@ -135,7 +135,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
     position: relative;
     overflow: clip;                     /* clip 은 sticky 를 안 깨뜨림 (hidden 은 깸) */
     text-align: center;
-    min-height: 150vh;                  /* 스크롤 여유 확보: sticky 텍스트가 더 오래 붙어있음 */
+    min-height: 145vh;                  /* 회색 여백 살짝 위로 (160vh → 145vh) */
     /* flex 로 세로 가운데 정렬 제거 → 텍스트가 위에 위치 */
   }
   /* hero-bg.{jpg,png} 파일이 있을 때만 페이드 배경으로 오버레이됨.
@@ -166,8 +166,8 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
   .hero-inner {
     max-width: 62rem;
     margin: 0 auto;
-    position: sticky;                /* 텍스트는 처음에 위에 있고, 스크롤 시 top: 5vh 자리에 붙어 사진이 뒤로 지나감 */
-    top: 5vh;
+    position: sticky;                /* 텍스트는 처음에 위에 있고, 스크롤 시 top: 10vh 자리에 붙어 사진이 뒤로 지나감 */
+    top: 10vh;
     z-index: 1;
   }
 
