@@ -7,56 +7,43 @@
 
 ---
 
-## 지금 상태 (2026-08-18)
+## 지금 상태 (2026-10-05)
+
+**배포 완료.** GitHub 조직 `snu-mlsc`, 레포 `snu-mlsc/snu-mlsc.github.io`,
+주소 <https://snu-mlsc.github.io>. `main` 에 push 하면 Actions 가 자동 배포.
+`astro.config.mjs` 의 `site` 도 실제 주소로 설정됨.
 
 ### 완료된 작업
-- Node.js LTS(24), Git, GitHub CLI 로컬 설치 (winget).
-- `npm install` 완료. dev 서버 `http://localhost:4321/` 에서 확인 가능.
-- 학교 서버(`devmlsc.snu.ac.kr`)에서 사진 23장 전부 다운로드 성공
-  → `public/people/` 20장, `public/research/` 3장.
-- **팔레트 리디자인**: viridis 다크톤 → Crisp White + Deep Teal 로 교체.
-  `src/styles/global.css` 의 `:root` 만 만지면 사이트 전체 색이 따라와.
-  히어로 섹션에 티얼→퍼플 은은한 그라디언트 배너 추가.
-- **KaTeX 수식 렌더링 도입**. 이제 수식은 진짜 LaTeX 문법으로 적으면
-  `<Equation />` 컴포넌트가 서버사이드로 렌더링해줘.
-- **멤버 사진 비율** 5rem 정사각형 → 3:4 세로 직사각형 (얼굴 안 잘림).
-  `object-position: top center` 로 안전장치.
-- **Publications 61편 동기화** — youngjoonhong.com/contact (Wix URL 매핑 오류로
-  Publication 페이지가 /contact 에 있음) 기준. 2012~2026 전부. highlight 7편은
-  ICLR/NeurIPS/ICML/IMA JNA/npj Comp Mat 최근 top venue 자동 선별.
-  topics 자동 부여 (Physics-informed ML, Operator learning, Generative models,
-  PDE theory, Water waves, Optics, Metamaterials, Climate 등).
-- **Alumni 대조 완료** — 홈페이지의 5명(Ko/Seol/Choi/Oh/Chang)이 members.yml
-  과 완전 일치. 수정 없음.
-- **논문 링크 42편 자동 검색·반영** — arXiv/OpenReview/publisher URL. 60/61 커버.
-  못 찾은 1편: Spectral coefficient learning for inverse problems (EAAI 2026).
-- **홈페이지 리디자인** — CRUNCH·Anthropic 참고. hero 아래 "Mathematics ×
-  Machine Learning × Scientific Computing" 슬로건 섹션 추가, 뉴스 스트립을
-  hero 근처로 승격 (카드 4개 그리드), Publications 페이지에 topic 필터 칩 추가
-  (14개 topic + All). people.astro 상단에 그룹 사진 자리 마련 —
-  `public/lab-photo.jpg` (혹은 .jpeg / .png) 넣으면 자동 표시.
+- Node.js LTS(24), Git, GitHub CLI 로컬 설치 (winget). `npm install` 완료.
+- 학교 서버(`devmlsc.snu.ac.kr`)에서 사진 다운로드 → `public/people/`, `public/research/`.
+- **팔레트**: Crisp White + Deep Teal. `src/styles/global.css` 의 `:root` 만 만지면 전체 반영.
+- **KaTeX 수식 렌더링** — `<Equation />` 컴포넌트 (아래 "수식 작성법").
+- **멤버 사진** 3:4 세로 직사각형, `object-position: top center`.
+- **Publications 67편** — youngjoonhong.com/contact (Wix URL 매핑 오류로
+  Publication 페이지가 /contact 에 있음) 기준 동기화. 2012~2026.
+  2026-10-05 에 NeurIPS 2026 3편 추가 (Risk-Sensitive Deep Optimal Stopping /
+  Neural Quantum Spectral Operator Learning / PDE-PFN) — 아직 링크 없음, highlight 아님.
+  topic 필터 칩(15개 + All, 자동 생성) 있음. Finance 토픽: 금융 논문 3편.
+- **논문 링크** arXiv/OpenReview/publisher URL 대부분 반영.
+  링크 없는 것: Spectral coefficient learning (EAAI 2026), NeurIPS 2026 3편.
+- **홈페이지 리디자인** — hero 배경 사진(`public/hero-bg.jpg`) + 스크롤 시 텍스트
+  sticky, 슬로건 섹션, 뉴스 카드 4개 그리드, 홈 섹션 이름 "Published work"
+  (highlight: true 논문만 표시).
+- **People** — Visiting students 섹션 추가 (Qunzhi Jin). 그룹 사진 자리:
+  `public/lab-photo.jpg` (.jpeg / .png) 넣으면 자동 표시.
+- **멤버 이름 표기 확인 완료** (당사자 확인, members.yml 표기가 정답).
+- **첫 화면 지원 안내/추천서 정책 문구 확인 완료**.
+- Alumni 5명(Ko/Seol/Choi/Oh/Chang) 홈페이지와 일치.
 
-### 아직 안 한 것 (우선순위 순)
-1. **GitHub 조직/레포 만들고 push** — 조직을 웹에서 먼저 생성해야 함
-   (<https://github.com/organizations/plan>, Free 플랜, 이름 예: `mlsc-snu`).
-   그 뒤 `gh auth login` → `gh repo create mlsc-snu/mlsc-snu.github.io --public`
-   → `git init && git add -A && git commit -m "Initial site" && git push -u origin main`.
-   마지막에 레포 Settings → Pages → Source 를 **GitHub Actions** 로.
-2. **`astro.config.mjs` 의 `site` 주소** — 조직 이름 확정 후 실제 주소로.
-3. ~~논문 6편이 전부인지 확인~~ — **완료**. youngjoonhong.com 과 동기화, 61편 반영.
-4. **`src/data/publications.yml` 저자 이름을 전체 이름으로** — `Y. Hong` 대신
+### 아직 안 한 것
+1. **`src/data/publications.yml` 저자 이름을 전체 이름으로** — `Y. Hong` 대신
    `Youngjoon Hong` 처럼 풀면 `members.yml` 의 `name` 과 매칭돼서 굵게 표시됨.
-   지금은 홈페이지 표기 그대로 (약자). 랩 멤버 이름을 우선 풀어쓰면 효과가 큼.
-4b. **멤버 이름 표기 재확인 필요** — 교수님 홈페이지 group 페이지 표기와
-   members.yml 표기가 몇 개 다름 (예: Joohun vs Juhoon, Sonn vs Son, Chanyoung vs
-   Chanyong, Dongseok vs Dongsuk, Hyeonseok vs Hyunseok, Jeong vs Jung).
-   본인 이메일과 일치하는 members.yml 을 우선 신뢰하고 있음. 당사자 확인 필요.
-4c. **integrated MS/PhD 통합과정 반영 여부** — 홈페이지는 통합과정을 별도 표시.
-   members.yml 은 PhD/MS 로만 나뉨. `role` enum 에 `mspd` 추가할지 결정 필요.
-5. **`src/content/news/2026-08-18-new-site.md`** — 실제 소식으로 바꾸거나 삭제.
-6. **첫 화면 지원 안내/추천서 정책 문구가 최신본인지** — `src/pages/index.astro`
-   아래쪽. 교수님 확인 필요.
-7. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
+2. **integrated MS/PhD 통합과정 반영 여부** — `role` enum
+   (`src/content.config.ts`) 에 `mspd` 추가할지 결정 필요.
+3. **`src/content/news/2026-08-18-new-site.md`** — 실제 소식으로 바꾸거나 삭제.
+   (NeurIPS 2026 3편 accept 소식 뉴스로 쓰기 좋음.)
+4. NeurIPS 2026 3편 링크(OpenReview/arXiv) 공개되면 추가, highlight 여부 결정.
+5. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
 
 ---
 
@@ -141,7 +128,7 @@ equation: "\\mathcal{L}[u] = f, \\quad u|_{\\partial\\Omega} = g"
 
 ---
 
-## GitHub 배포 (준비 되면)
+## GitHub 배포 (이미 완료 — 새로 세팅할 때 참고용)
 
 ```powershell
 # 1. GitHub CLI 로그인 (브라우저 열림)

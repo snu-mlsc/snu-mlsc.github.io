@@ -1,4 +1,4 @@
-# 논문 목록. youngjoonhong.com 의 Publication 페이지와 동기화 (총 61편).
+# 논문 목록. youngjoonhong.com 의 Publication 페이지와 동기화 (총 67편).
 #
 # 새 논문은 아무 데나 붙여도 돼 — 연도 기준 정렬은 사이트가 알아서 해.
 # highlight: true 인 것만 첫 화면 "Selected work" 에 올라가.
@@ -8,6 +8,27 @@
 # type: journal | conference | preprint | thesis
 
 # ─────────────────────────── 2026 ───────────────────────────
+
+- title: Risk-Sensitive Deep Optimal Stopping
+  authors: [Y. Jeong, Y. Hong]
+  venue: NeurIPS
+  year: 2026
+  type: conference
+  topics: [Finance, Machine learning theory]
+
+- title: Neural Quantum Spectral Operator Learning for Solving Partial Differential Equations
+  authors: [C. Kim, M. Seong, Y. Kim, D.-K. Park, Y. Hong]
+  venue: NeurIPS
+  year: 2026
+  type: conference
+  topics: [Operator learning, Scientific machine learning]
+
+- title: "PDE-PFN: Prior-Data Fitted Neural PDE Solver"
+  authors: [J. Park, M. Kang, D. Lee, W. Cho, K. Lee, A. Gruber, Y. Hong, N. Park]
+  venue: NeurIPS
+  year: 2026
+  type: conference
+  topics: [Scientific machine learning, Physics-informed ML]
 
 - title: Discontinuous Galerkin finite element operator network for solving non-smooth PDEs
   authors: [K. Chawla, Y. Hong, J. Lee, S. Lee]
@@ -211,7 +232,7 @@
   venue: Expert Systems With Applications
   year: 2024
   type: journal
-  topics: [Reinforcement learning, Applications]
+  topics: [Reinforcement learning, Finance]
   paper: https://www.sciencedirect.com/science/article/abs/pii/S0957417424011291
   arxiv: https://arxiv.org/abs/2307.10649
 
@@ -271,7 +292,7 @@
   venue: Quantitative Finance
   year: 2024
   type: journal
-  topics: [Physics-informed ML, Applications]
+  topics: [Physics-informed ML, Finance]
   paper: https://www.tandfonline.com/doi/full/10.1080/14697688.2023.2294799
   arxiv: https://arxiv.org/abs/2209.10771
 
