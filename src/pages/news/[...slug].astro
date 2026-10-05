@@ -17,6 +17,11 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
     <h1>{item.data.title}</h1>
     {item.data.summary && <p class="summary">{item.data.summary}</p>}
     <div class="prose"><Content /></div>
+    {item.data.photos.length > 0 && (
+      <div class="photos">
+        {item.data.photos.map((p) => <img src={`/gallery/${p}`} alt={item.data.title} loading="lazy" />)}
+      </div>
+    )}
     {item.data.link && <p class="ext"><a href={item.data.link}>Read more</a></p>}
     <p class="back"><a href="/news/">← All news</a></p>
   </article>
@@ -29,4 +34,6 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
   .prose :global(p) { color: var(--ink-2); }
   .ext a, .back a { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
   .back { margin-top: 3rem; }
+  .photos { display: grid; gap: 1rem; margin-top: 1.5rem; }
+  .photos img { width: 100%; height: auto; display: block; border: 1px solid var(--rule); }
 </style>

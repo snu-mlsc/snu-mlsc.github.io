@@ -68,6 +68,7 @@ const news = defineCollection({
     kind: z.enum(['paper', 'award', 'talk', 'people', 'event']).default('paper'),
     summary: z.string().optional(),
     link: z.string().url().optional(),
+    photos: z.array(z.string()).default([]), // public/gallery/ 안의 파일명. 있으면 Gallery 페이지에 모임
   }),
 });
 

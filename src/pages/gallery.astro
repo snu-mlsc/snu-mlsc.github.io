@@ -1,0 +1,54 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+// 사진이 붙은 뉴스(photos 필드)를 최신순으로 모아 보여줘.
+// 사진 추가: public/gallery/ 에 파일 넣고, 뉴스 .md 의 photos 에 파일명 적기.
+const events = (await getCollection('news'))
+  .filter((n) => n.data.photos.length > 0)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+---
+<Base title="Gallery — MLSC Lab">
+  <section class="section wrap head">
+    <p class="eyebrow">Gallery</p>
+    <h1>Life in the lab</h1>
+  </section>
+
+  <hr class="rule" />
+
+  <section class="section wrap">
+    {events.length === 0 && <p class="empty">No photos yet.</p>}
+    {events.map((e) => (
+      <article class="event">
+        <div class="meta">
+          <time datetime={e.data.date.toISOString()}>{fmt(e.data.date)}</time>
+          <h2><a href={`/news/${e.id}/`}>{e.data.title}</a></h2>
+          {e.data.summary && <p>{e.data.summary}</p>}
+        </div>
+        <div class="photos">
+          {e.data.photos.map((p) => (
+            <a href={`/gallery/${p}`}><img src={`/gallery/${p}`} alt={e.data.title} loading="lazy" /></a>
+          ))}
+        </div>
+      </article>
+    ))}
+  </section>
+</Base>
+
+<style>
+  .head h1 { font-size: var(--step-3); }
+  .empty { color: var(--ink-3); }
+  .event { display: grid; grid-template-columns: 16rem minmax(0, 1fr); gap: 2rem; padding-block: 2rem; border-top: 1px solid var(--rule); }
+  .event:last-child { border-bottom: 1px solid var(--rule); }
+  @media (max-width: 48rem) { .event { grid-template-columns: 1fr; gap: 1rem; } }
+  .meta time { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-3); }
+  h2 { font-size: var(--step-1); margin: 0.4rem 0; }
+  h2 a { text-decoration: none; }
+  h2 a:hover { text-decoration: underline; text-decoration-color: var(--accent); }
+  .meta p { color: var(--ink-2); font-size: var(--step--1); margin: 0; }
+  .photos { display: grid; grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)); gap: 0.75rem; }
+  .photos a { display: block; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--rule); background: var(--rule); }
+  .photos img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
+  .photos a:hover img { transform: scale(1.03); }
+</style>

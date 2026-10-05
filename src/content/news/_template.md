@@ -4,6 +4,7 @@ date: 2026-08-18
 kind: paper        # paper / award / talk / people / event 중 하나
 summary: 목록에 한 줄로 보일 요약. 없어도 돼.
 link: https://arxiv.org   # 없으면 이 줄 지워
+photos: [2026-08-18-something.jpg]   # public/gallery/ 안의 사진. 넣으면 Gallery 에도 뜸. 없으면 지워
 ---
 
 본문. 안 써도 되고, 쓰면 개별 페이지가 생겨.

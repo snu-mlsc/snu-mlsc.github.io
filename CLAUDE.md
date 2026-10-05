@@ -34,6 +34,9 @@
 - **멤버 이름 표기 확인 완료** (당사자 확인, members.yml 표기가 정답).
 - **첫 화면 지원 안내/추천서 정책 문구 확인 완료**.
 - Alumni 5명(Ko/Seol/Choi/Oh/Chang) 홈페이지와 일치.
+- **Gallery 페이지** (`/gallery/`, 상단 메뉴) — 뉴스 .md 의 `photos` 필드에 적힌
+  사진(`public/gallery/`)을 이벤트별로 모아 보여줌. 이벤트 2건: 교수님 생신(2026-06-19),
+  관악산 등산(2026-10-03). 사진은 긴 변 1600px 로 줄여서 넣는 게 좋음.
 
 ### 아직 안 한 것
 1. **`src/data/publications.yml` 저자 이름을 전체 이름으로** — `Y. Hong` 대신
@@ -93,6 +96,7 @@ npm run check    # Astro 타입 체크
 | 멤버 추가·수정 | `src/data/members.yml` (사진은 `public/people/` 에 400×400 정사각형 권장) |
 | 논문 추가 | `src/data/publications.yml` |
 | 뉴스 1건 추가 | `src/content/news/YYYY-MM-DD-slug.md` (`_template.md` 복사) |
+| 갤러리 사진 | `public/gallery/` 에 넣고 뉴스 .md 의 `photos: [파일명]` (kind: event) |
 | 연구 분야 글 | `src/content/research/*.md` |
 | 지원 안내 문구 | `src/pages/index.astro` 아래쪽 (`.join` 섹션) |
 | 색·글꼴 | `src/styles/global.css` 의 `:root` 블록 |
