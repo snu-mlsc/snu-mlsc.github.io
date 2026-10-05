@@ -36,6 +36,7 @@
   박사: Chanyoung Kim, Minkyung Sonn / 석사: Yechan Jeong / 나머지 11명 석박통합.
 - **멤버 이름 표기 확인 완료** (당사자 확인, members.yml 표기가 정답).
 - **첫 화면 지원 안내/추천서 정책 문구 확인 완료**.
+- 임시 뉴스(2026-08-18-new-site) 삭제 완료.
 - Alumni 5명(Ko/Seol/Choi/Oh/Chang) 홈페이지와 일치.
 - **Gallery 페이지** (`/gallery/`, 상단 메뉴) — 뉴스 .md 의 `photos` 필드에 적힌
   사진(`public/gallery/`)을 이벤트별로 모아 보여줌. 이벤트 3건: 교수님 생신(2026-06-19), 랩 세미나 단체사진(2026-08-28),
@@ -44,10 +45,9 @@
 ### 아직 안 한 것
 1. **`src/data/publications.yml` 저자 이름을 전체 이름으로** — `Y. Hong` 대신
    `Youngjoon Hong` 처럼 풀면 `members.yml` 의 `name` 과 매칭돼서 굵게 표시됨.
-2. **`src/content/news/2026-08-18-new-site.md`** — 실제 소식으로 바꾸거나 삭제.
-   (NeurIPS 2026 3편 accept 소식 뉴스로 쓰기 좋음.)
-3. NeurIPS 2026 3편 링크(OpenReview/arXiv) 공개되면 추가, highlight 여부 결정.
-4. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
+2. NeurIPS 2026 3편 링크(OpenReview/arXiv) 공개되면 추가, highlight 여부 결정.
+   (2026-10-05 기준 아직 논문 페이지 미공개.)
+3. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
 
 ---
 
