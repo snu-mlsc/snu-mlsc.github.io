@@ -13,8 +13,8 @@ const by = (role: string) => all.filter((m) => m.data.role === role);
 const pi = by('pi');
 const groups = [
   { label: 'Postdoctoral researchers', people: by('postdoc') },
-  { label: 'Ph.D. program', people: by('phd') },
-  { label: 'M.S. program', people: by('ms') },
+  // 대학원생은 한 섹션: 박사 → 석박통합 → 석사 순, 과정은 각자 title 로 표시
+  { label: 'Graduate students', people: ['phd', 'mspd', 'ms'].flatMap((r) => by(r).sort((a, b) => a.data.name.localeCompare(b.data.name))), showTitle: true },
   { label: 'Undergraduate researchers', people: by('undergrad') },
   { label: 'Visiting students', people: by('visiting') },
 ].filter((g) => g.people.length > 0);
@@ -85,6 +85,7 @@ const mask = (e: string) => e.replace('@', ' [at] ');
               </div>
               <div>
                 <h3>{m.data.name}{m.data.name_ko && <span class="ko"> {m.data.name_ko}</span>}</h3>
+                {g.showTitle && m.data.title && <p class="program">{m.data.title}</p>}
                 {m.data.interests.length > 0 && <p class="interests">{m.data.interests.join(' · ')}</p>}
                 {m.data.email && <p class="mail">{mask(m.data.email)}</p>}
                 {(m.data.website || m.data.github || m.data.scholar) && (
@@ -161,6 +162,7 @@ const mask = (e: string) => e.replace('@', ' [at] ');
   .avatar span { font-family: var(--font-mono); color: var(--ink-3); }
   h3 { font-size: var(--step-1); }
   .ko { color: var(--ink-3); font-size: 0.75em; font-family: var(--font-body); font-weight: 400; }
+  .program { font-family: var(--font-mono); font-size: calc(var(--step--1) * 0.88); color: var(--accent); letter-spacing: 0.02em; margin: 0.2rem 0 0; }
   .interests { font-size: var(--step--1); color: var(--ink-2); margin: 0.35rem 0 0; line-height: 1.5; }
   .mail { font-family: var(--font-mono); font-size: var(--step--1); color: var(--ink-3); margin: 0.4rem 0 0; word-break: break-all; }
   .contact { display: flex; flex-wrap: wrap; gap: 0.9rem; margin: 0.45rem 0 0; }

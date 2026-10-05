@@ -31,6 +31,9 @@
   (highlight: true 논문만 표시).
 - **People** — Visiting students 섹션 추가 (Qunzhi Jin). 그룹 사진 자리:
   `public/lab-photo.jpg` (.jpeg / .png) 넣으면 자동 표시.
+- **석박통합과정 반영** — role `mspd` 추가. People 페이지는 "Graduate students" 한 섹션에
+  박사(phd) → 석박통합(mspd) → 석사(ms) 순으로 모이고 과정은 title 로 표시.
+  박사: Chanyoung Kim, Minkyung Sonn / 석사: Yechan Jeong / 나머지 11명 석박통합.
 - **멤버 이름 표기 확인 완료** (당사자 확인, members.yml 표기가 정답).
 - **첫 화면 지원 안내/추천서 정책 문구 확인 완료**.
 - Alumni 5명(Ko/Seol/Choi/Oh/Chang) 홈페이지와 일치.
@@ -41,12 +44,10 @@
 ### 아직 안 한 것
 1. **`src/data/publications.yml` 저자 이름을 전체 이름으로** — `Y. Hong` 대신
    `Youngjoon Hong` 처럼 풀면 `members.yml` 의 `name` 과 매칭돼서 굵게 표시됨.
-2. **integrated MS/PhD 통합과정 반영 여부** — `role` enum
-   (`src/content.config.ts`) 에 `mspd` 추가할지 결정 필요.
-3. **`src/content/news/2026-08-18-new-site.md`** — 실제 소식으로 바꾸거나 삭제.
+2. **`src/content/news/2026-08-18-new-site.md`** — 실제 소식으로 바꾸거나 삭제.
    (NeurIPS 2026 3편 accept 소식 뉴스로 쓰기 좋음.)
-4. NeurIPS 2026 3편 링크(OpenReview/arXiv) 공개되면 추가, highlight 여부 결정.
-5. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
+3. NeurIPS 2026 3편 링크(OpenReview/arXiv) 공개되면 추가, highlight 여부 결정.
+4. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
 
 ---
 

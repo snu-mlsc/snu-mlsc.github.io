@@ -1,6 +1,7 @@
 # 멤버 명단. 기존 사이트(devmlsc.snu.ac.kr)에서 옮겨왔어.
 #
-# role: pi / postdoc / phd / ms / undergrad / visiting / alumni  — 이걸로 섹션이 갈려.
+# role: pi / postdoc / phd / mspd / ms / undergrad / visiting / alumni  — 이걸로 섹션이 갈려.
+#   phd / mspd(석박통합) / ms 는 People 페이지에서 "Graduate students" 한 섹션에 이 순서로 모여.
 # 사진: public/people/ 에 넣고 파일명만 적으면 돼. 없으면 이니셜 사각형이 나와.
 #       기존 사이트 사진은 scripts/fetch-photos.sh 를 한 번 돌리면 다 받아져.
 # 이메일: 여기엔 그냥 평범하게 적어. 화면에는 기존 사이트처럼 [at] 로 바뀌어 나가고
@@ -70,36 +71,36 @@
   photo: chanyoung-kim.jpg
 
 - name: Dohyun Kim
-  role: phd
-  title: Ph.D. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Applied mathematics, Quantum computing]
   email: dohyun0809@snu.ac.kr
   photo: dohyun-kim.jpg
 
 - name: Dohyun Park
-  role: phd
-  title: Ph.D. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Machine learning, Climate prediction and weather forecasting]
   email: do3204@snu.ac.kr
   photo: dohyun-park.jpg
 
 - name: Dongseok Lee
-  role: phd
-  title: Ph.D. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Machine learning, Scientific machine learning]
   email: lorafa@snu.ac.kr
   photo: dongseok-lee.jpg
 
 - name: Hyeonseok Seo
-  role: phd
-  title: Ph.D. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Nonlinear PDE, Analytic aspects of deep learning, Physics-informed neural networks]
   email: gustjr5623@naver.com
   photo: hyeonseok-seo.jpg
 
 - name: Juhoon Kang
-  role: phd
-  title: Ph.D. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Numerical analysis, Machine learning for PDEs, Mathematical theory of machine learning]
   email: juhoon08@snu.ac.kr
   photo: juhoon-kang.png
@@ -121,45 +122,45 @@
 # ──────────────────────────── M.S. ───────────────────────────────
 
 - name: Chaewon Park
-  role: ms
-  title: M.S. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Scientific machine learning]
   email: pchae12@snu.ac.kr
   photo: chaewon-park.jpg
 
 - name: Hyungjun Joe
-  role: ms
-  title: M.S. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Machine learning, AI for science]
   email: hyungjunjoe@snu.ac.kr
   website: https://hyungjunjoe.github.io
   photo: hyungjun-joe.jpg
 
 - name: Jiho Cheon
-  role: ms
-  title: M.S. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Machine learning, Deep learning]
   email: 1000jiho@snu.ac.kr
   photo: jiho-cheon.jpg
 
 - name: Junu Choi
-  role: ms
-  title: M.S. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Stochastic dynamics, Deep geometric analysis, Generative modeling]
   email: junu0413@snu.ac.kr
   website: https://junu-choi.github.io
   photo: junu-choi.jpeg
 
 - name: Mansu Chung
-  role: ms
-  title: M.S. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [PDEs, Climate prediction and weather forecasting]
   email: mansu.chung314@snu.ac.kr
   photo: mansu-chung.jpg
 
 - name: Seongjae Lim
-  role: ms
-  title: M.S. Program
+  role: mspd
+  title: Integrated M.S./Ph.D. Program
   interests: [Physics-informed machine learning, AI for science, Scientific machine learning]
   email: fofo9286@snu.ac.kr
   photo: seongjae-lim.jpg
