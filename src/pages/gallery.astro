@@ -26,7 +26,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
           <h2><a href={`/news/${e.id}/`}>{e.data.title}</a></h2>
           {e.data.summary && <p>{e.data.summary}</p>}
         </div>
-        <div class="photos">
+        <div class:list={["photos", { single: e.data.photos.length === 1 }]}>
           {e.data.photos.map((p) => (
             <a href={`/gallery/${p}`}><img src={`/gallery/${p}`} alt={e.data.title} loading="lazy" /></a>
           ))}
@@ -51,4 +51,8 @@ const fmt = (d: Date) => d.toLocaleDateString('en-GB', { day: '2-digit', month: 
   .photos a { display: block; aspect-ratio: 1; overflow: hidden; border: 1px solid var(--rule); background: var(--rule); }
   .photos img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.3s; }
   .photos a:hover img { transform: scale(1.03); }
+  /* 사진 한 장짜리 이벤트는 자르지 않고 원래 비율로 */
+  .photos.single { grid-template-columns: 1fr; }
+  .photos.single a { aspect-ratio: auto; }
+  .photos.single img { height: auto; }
 </style>
