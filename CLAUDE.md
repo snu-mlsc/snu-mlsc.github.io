@@ -45,8 +45,8 @@
 ### 아직 안 한 것
 1. **`src/data/publications.yml` 저자 이름을 전체 이름으로** — `Y. Hong` 대신
    `Youngjoon Hong` 처럼 풀면 `members.yml` 의 `name` 과 매칭돼서 굵게 표시됨.
-2. NeurIPS 2026 3편 링크(OpenReview/arXiv) 공개되면 추가, highlight 여부 결정.
-   (2026-10-05 기준 아직 논문 페이지 미공개.)
+2. NeurIPS 2026 3편 — arXiv 링크 2개 반영(Quantum spectral 2605.27408, PDE-PFN 2610.13334, 2026-10-28). Risk-Sensitive Deep Optimal Stopping 은 아직 arXiv/OpenReview 없음. OpenReview NeurIPS 2026 페이지는 셋 다 아직 미공개(가상사이트 목록에도 없음) → 공개되면 추가, highlight 여부 결정.
+
 3. Project 페이지는 아직 없음. 실제 과제 목록 생기면 추가.
 
 ---

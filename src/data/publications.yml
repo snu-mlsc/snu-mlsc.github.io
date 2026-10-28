@@ -22,6 +22,7 @@
   year: 2026
   type: conference
   topics: [Operator learning, Scientific machine learning]
+  arxiv: https://arxiv.org/abs/2605.27408
 
 - title: "PDE-PFN: Prior-Data Fitted Neural PDE Solver"
   authors: [J. Park, M. Kang, D. Lee, W. Cho, K. Lee, A. Gruber, Y. Hong, N. Park]
@@ -29,6 +30,7 @@
   year: 2026
   type: conference
   topics: [Scientific machine learning, Physics-informed ML]
+  arxiv: https://arxiv.org/abs/2610.13334
 
 - title: Discontinuous Galerkin finite element operator network for solving non-smooth PDEs
   authors: [K. Chawla, Y. Hong, J. Lee, S. Lee]
