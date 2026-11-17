@@ -15,6 +15,7 @@
   year: 2026
   type: conference
   topics: [Finance, Machine learning theory]
+  arxiv: https://arxiv.org/abs/2611.11332
 
 - title: Neural Quantum Spectral Operator Learning for Solving Partial Differential Equations
   authors: [C. Kim, M. Seong, Y. Kim, D.-K. Park, Y. Hong]
